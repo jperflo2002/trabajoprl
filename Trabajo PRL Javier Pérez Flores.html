@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabajo PRL Javier Pérez Flores</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%91%B7%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<meta name="description" content="Trabajo académico sobre prevención de riesgos laborales en zonas de trabajo y herramientas del taller.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+:root{
+  --navy:#12345b; --navy2:#0b2750; --blue:#d9ebf8; --blue2:#b9d8ee;
+  --cream:#f6f0e5; --beige:#efe6d7; --white:#fffdf9; --ink:#263746; --muted:#667786;
+  --line:#d7e0e7; --shadow:0 10px 30px rgba(18,52,91,.08); --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Nunito',Arial,sans-serif;background:linear-gradient(180deg,var(--cream),#fbfaf7 30%,#f4f8fb 100%);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(18,52,91,.1)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:18px}
+.brand{font-weight:900;color:var(--navy2);display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{text-decoration:none;padding:10px 13px;border-radius:12px;font-weight:800;color:var(--navy)}
+.nav-links a:hover{background:var(--blue)}
+.menu-btn{display:none;border:0;background:var(--blue);color:var(--navy);padding:10px 12px;border-radius:12px;cursor:pointer}
+.hero{padding:54px 0 34px}
+.hero-card{background:linear-gradient(135deg,#fffdf9 0%,#eaf4fb 100%);border:1px solid #dbe5ec;border-radius:30px;box-shadow:var(--shadow);padding:38px;position:relative;overflow:hidden}
+.hero-card:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:rgba(185,216,238,.35);right:-80px;top:-90px}
+.student{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.student span{background:rgba(255,255,255,.8);border:1px solid var(--line);padding:8px 13px;border-radius:999px;font-weight:800;color:var(--navy)}
+.kicker{color:#3d668b;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}
+h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.05;color:var(--navy2);margin:8px 0 14px;max-width:900px}
+.hero p{font-size:1.08rem;max-width:780px;color:#506272;margin:0}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.meta{background:rgba(255,255,255,.72);padding:15px;border-radius:16px;border:1px solid var(--line)}
+.meta b{display:block;color:var(--navy2)}
+.section{padding:42px 0}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+.section-title h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:0;color:var(--navy2)}
+.section-title p{margin:5px 0 0;color:var(--muted)}
+.block-switch{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.big-tab{border:1px solid #cfdce6;background:linear-gradient(135deg,#fffdf9,#e9f5fc);padding:28px;border-radius:24px;box-shadow:var(--shadow);text-align:left;cursor:pointer;transition:.2s;min-height:145px}
+.big-tab:hover,.big-tab.active{transform:translateY(-2px);border-color:#91b8d4;box-shadow:0 14px 35px rgba(18,52,91,.12)}
+.big-tab .emoji{font-size:2rem}
+.big-tab h3{margin:8px 0 4px;color:var(--navy2);font-size:1.35rem}
+.big-tab p{margin:0;color:var(--muted)}
+.main-panel{display:block;margin-top:24px}
+.main-panel.active{display:block}
+.zone-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.zone-btn{border:1px solid var(--line);background:var(--white);border-radius:16px;padding:14px;cursor:pointer;text-align:left;font-weight:900;color:var(--navy)}
+.zone-btn.active{background:var(--navy2);color:#fff;border-color:var(--navy2)}
+.zone-panel{display:none}
+.zone-fixed-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;background:linear-gradient(135deg,#fffdf9,#eef7fb);border:1px solid var(--line);border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.zone-fixed-photo{position:relative;display:block;width:100%;aspect-ratio:4/3;border:0;padding:0;border-radius:17px;overflow:hidden;background:#dfeaf0;cursor:pointer;box-shadow:0 6px 18px rgba(18,52,91,.08)}
+.zone-fixed-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s ease}
+.zone-fixed-photo:hover img{transform:scale(1.035)}
+@media(max-width:1050px){.zone-fixed-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.zone-fixed-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:13px}}
+
+.zone-photo-manager{background:linear-gradient(135deg,#fffdf9,#eef7fb);border:1px solid var(--line);border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.zone-photo-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.zone-photo-title{display:flex;align-items:center;gap:11px}
+.zone-photo-title .photo-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--blue);font-size:1.25rem}
+.zone-photo-title h4{margin:0;color:var(--navy2);font-size:1.05rem}
+.zone-photo-title p{margin:2px 0 0;color:var(--muted);font-size:.86rem}
+.zone-photo-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.photo-add-btn,.photo-clear-btn{border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-weight:900;cursor:pointer;transition:.2s}
+.photo-add-btn{background:var(--navy2);color:#fff;border-color:var(--navy2)}
+.photo-add-btn:hover{transform:translateY(-1px);box-shadow:0 7px 16px rgba(11,39,80,.14)}
+.photo-clear-btn{background:#fff;color:#6b5960}
+.photo-clear-btn:hover{background:#f8f1ec}
+.zone-photo-input{display:none}
+.zone-photo-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.zone-photo-gallery:empty{display:none}
+.user-photo{position:relative;aspect-ratio:4/3;border-radius:17px;overflow:hidden;background:#dfeaf0;border:1px solid rgba(18,52,91,.1);box-shadow:0 6px 18px rgba(18,52,91,.08);cursor:pointer}
+.user-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s}
+.user-photo:hover img{transform:scale(1.035)}
+.user-photo .user-photo-label{position:absolute;left:8px;bottom:8px;right:8px;background:rgba(11,39,80,.88);color:#fff;border-radius:9px;padding:5px 8px;font-size:.72rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-photo .user-photo-remove{position:absolute;right:7px;top:7px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(255,253,249,.94);color:var(--navy2);font-weight:900;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.16);z-index:2}
+.user-photo .user-photo-remove:hover{background:#fff}
+.zone-photo-empty{margin-top:12px;padding:11px 13px;border:1px dashed #c8d7e0;border-radius:13px;color:#6c7c87;background:rgba(255,255,255,.65);font-size:.84rem}
+.zone-photo-gallery:not(:empty)+.zone-photo-empty{display:none}
+@media(max-width:760px){.zone-photo-gallery{grid-template-columns:repeat(2,1fr)}.zone-photo-head{align-items:flex-start}.zone-photo-actions{width:100%}.photo-add-btn,.photo-clear-btn{flex:1}}
+
+.zone-panel.active{display:block}
+.zone-intro{display:flex;gap:18px;align-items:flex-start;background:var(--white);border:1px solid var(--line);padding:24px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:16px}
+.zone-icon{font-size:2.2rem;background:var(--blue);width:58px;height:58px;display:grid;place-items:center;border-radius:17px;flex:0 0 auto}
+.zone-intro h3{margin:0;color:var(--navy2);font-size:1.6rem}
+.zone-intro p{margin:7px 0 0;color:#526474}
+.accordion{background:var(--white);border:1px solid var(--line);border-radius:18px;margin:12px 0;overflow:hidden;box-shadow:0 5px 20px rgba(18,52,91,.04)}
+.accordion summary{list-style:none;cursor:pointer;padding:17px 19px;font-weight:900;color:var(--navy2);display:flex;justify-content:space-between;align-items:center}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary span{font-size:1.3rem;color:#6f91aa;transition:.2s}
+.accordion[open] summary span{transform:rotate(45deg)}
+.accordion-content{padding:0 18px 20px}
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.risk-card,.info-card{border:1px solid #e0e7eb;background:#fff;border-radius:18px;padding:18px}
+.risk-head{display:flex;gap:12px;align-items:flex-start}
+.risk-icon{font-size:1.55rem;background:#edf6fb;border-radius:12px;padding:7px;line-height:1}
+.risk-card h4,.info-card h4{margin:0;color:var(--navy2);font-size:1.05rem}
+.risk-card p,.info-card p{margin:6px 0 0;color:#5c6d7a;font-size:.94rem}
+.subhead,.info-title{font-weight:900;color:#3d668b;margin:15px 0 5px;display:flex;gap:8px;align-items:center}
+.risk-card ul,.tool-card ul{margin:6px 0 0;padding-left:20px}
+.risk-card li,.tool-card li{margin:3px 0;font-size:.9rem}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.epi-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-left:0;list-style:none}
+.epi-list li{background:#edf6fb;border:1px solid #d7e8f2;padding:12px 14px;border-radius:14px}
+.highlight-box{background:linear-gradient(135deg,#f8f2e8,#edf6fb);border-left:5px solid var(--navy2);padding:18px;border-radius:14px;color:#4d6070}
+.tool-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}
+.search{flex:1;min-width:230px;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:white;outline:none}
+.search:focus{border-color:#82acc9;box-shadow:0 0 0 3px rgba(130,172,201,.15)}
+.filter-btn{border:1px solid var(--line);background:white;color:var(--navy);padding:12px 14px;border-radius:13px;font-weight:900;cursor:pointer}
+.filter-btn.active{background:var(--navy2);color:white}
+.tools-summary{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 20px}
+.counter{background:var(--blue);padding:8px 12px;border-radius:999px;font-weight:900;color:var(--navy)}
+.tool-grid-wrap{display:grid;grid-template-columns:1fr;gap:15px}
+.tool-card{display:grid;grid-template-columns:250px 1fr;background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 6px 25px rgba(18,52,91,.05)}
+.tool-image{background:#eaf3f8;min-height:230px}
+.image-btn{position:relative;border:0;padding:0;width:100%;height:100%;display:block;background:transparent;cursor:pointer;overflow:hidden}
+.image-btn img{width:100%;height:100%;min-height:230px;object-fit:cover;display:block;transition:transform .25s}
+.image-btn:hover img{transform:scale(1.03)}
+.image-btn>span{position:absolute;left:10px;bottom:10px;background:rgba(11,39,80,.9);color:white;border-radius:10px;padding:6px 9px;font-size:.76rem;font-weight:900}
+.image-placeholder{height:100%;min-height:230px;display:grid;place-items:center;align-content:center;gap:8px;padding:25px;text-align:center;color:#71808c}
+.image-placeholder span{font-size:2rem}
+.tool-body{padding:22px}
+.tool-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.tool-top h4{margin:0;color:var(--navy2);font-size:1.35rem;line-height:1.2}
+.tag,.kind-badge{display:inline-block;margin-top:8px;background:#edf6fb;border:1px solid #d6e6f0;color:#3c6483;padding:5px 9px;border-radius:999px;font-size:.78rem;font-weight:900}
+.kind-badge{margin-top:0;background:var(--cream);border-color:#eadfcd;white-space:nowrap}
+.tool-desc{color:#5d6e7a;margin:10px 0 18px}
+.tool-grid{display:grid;grid-template-columns:1fr 1.25fr .8fr;gap:14px}
+.tool-grid>div{background:#fbfcfd;border:1px solid #e5ebef;border-radius:15px;padding:14px}
+.tool-grid h5{margin:0 0 5px;color:var(--navy2);font-size:.92rem}
+.tool-epi ul{padding-left:18px}
+.img-error img{opacity:.15}
+.img-error:after{content:"Imagen externa no disponible en este momento";position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;color:var(--navy);font-weight:900;background:#edf6fb}
+.resources{display:grid;grid-template-columns:1fr;gap:20px}
+.signal-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0 24px}
+.signal-tab{border:1px solid #cfdce6;background:linear-gradient(135deg,#fffdf9,#e9f5fc);padding:18px 20px;border-radius:18px;box-shadow:var(--shadow);text-align:left;cursor:pointer;transition:.2s;font-weight:900;color:var(--navy2)}
+.signal-tab:hover,.signal-tab.active{transform:translateY(-2px);border-color:#91b8d4;background:var(--navy2);color:#fff}
+.signal-panel{display:none}
+.signal-panel.active{display:block}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gallery-item{height:180px;background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;position:relative;text-align:left}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-item span{position:absolute;left:0;right:0;bottom:0;padding:9px;background:linear-gradient(transparent,rgba(11,39,80,.88));color:#fff;font-weight:900;font-size:.8rem}
+.source-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.source{background:white;border:1px solid var(--line);border-radius:16px;padding:14px}
+.source h4{margin:0 0 6px;color:var(--navy2)}
+.source a{color:#2d6793;word-break:break-word}
+footer{margin-top:35px;background:var(--navy2);color:#e9f2f8;padding:28px 0}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-inner p{margin:3px 0;font-size:.9rem}
+.modal{position:fixed;inset:0;background:rgba(5,20,35,.78);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modal-box{background:#fffdf9;max-width:min(1000px,96vw);max-height:92vh;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.modal-box img{max-width:100%;max-height:78vh;display:block;object-fit:contain;background:#eef4f7}
+.modal-caption{padding:12px 16px;font-weight:900;color:var(--navy2)}
+.close{position:absolute;right:10px;top:10px;border:0;border-radius:50%;width:38px;height:38px;background:rgba(11,39,80,.9);color:#fff;cursor:pointer;font-size:1.2rem}
+.backtop{position:fixed;right:18px;bottom:18px;border:0;background:var(--navy2);color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;box-shadow:var(--shadow);z-index:40}
+.notice{background:#fff8e9;border:1px solid #ead9ad;border-radius:16px;padding:14px 16px;color:#665a3b;margin:15px 0}
+@media(max-width:900px){
+  .tool-card{grid-template-columns:190px 1fr}
+  .tool-grid{grid-template-columns:1fr 1fr}
+  .tool-epi{grid-column:1/-1}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  .nav{position:relative}
+  .menu-btn{display:block}
+  .nav-links{display:none;position:absolute;top:62px;left:0;right:0;background:#fffdf9;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%}
+  .hero{padding-top:25px}
+  .hero-card{padding:24px;border-radius:22px}
+  .hero-meta,.block-switch,.zone-nav,.risk-grid,.info-grid,.source-list{grid-template-columns:1fr}
+  .section{padding:30px 0}
+  .zone-intro{padding:18px}
+  .epi-list{grid-template-columns:1fr}
+  .tool-card{grid-template-columns:1fr}
+  .tool-image,.image-btn img,.image-placeholder{min-height:210px;height:210px}
+  .tool-body{padding:17px}
+  .tool-top{flex-direction:column}
+  .tool-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery-item{height:150px}
+  .brand{font-size:.92rem}
+  .kicker{font-size:.72rem}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#inicio">🦺 PRL · Javier Pérez Flores</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#inicio">🏠 Inicio</a>
+      <a href="#zonas">🏭 Zonas de trabajo</a>
+      <a href="#herramientas">🔧 Herramientas</a>
+      <a href="#senales">🚨 Señales y EPIs</a>
+      <a href="#bibliografia">📚 Bibliografía</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="container">
+    <div class="hero-card">
+      <div class="student">
+        <span>Javier Pérez Flores</span>
+        <span>1º Mantenimiento de Instalaciones Térmicas y de Fluidos</span>
+        <span>Procesos de Montaje de Instalaciones</span>
+      </div>
+      <div class="kicker">🛡️ Seguridad · prevención · taller</div>
+      <h1>TRABAJO LEY DE PREVENCIÓN DE RIESGOS LABORALES</h1>
+      <p>Identificación de riesgos y medidas preventivas para trabajar de forma segura en las zonas del taller y en el uso de máquinas, equipos y herramientas.</p>
+      <div class="hero-meta">
+        <div class="meta"><b>🏭 3 zonas</b><span>Mecanizado · Soldadura eléctrica · Frío</span></div>
+        <div class="meta"><b>🔧 48 fichas</b><span>Equipos, máquinas y herramientas del</span></div>
+        <div class="meta"><b>📋 Enfoque preventivo</b><span>Riesgos · medidas · EPI · organización</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="zonas">
+<div class="container">
+  <div class="section-title"><div><h2>🏭 ZONAS DE TRABAJO</h2><p>Selecciona una zona para consultar sus riesgos, medidas y condiciones preventivas.</p></div></div>
+  <div class="block-switch">
+    <div class="big-tab active" aria-hidden="true"><div class="emoji">🏭</div><h3>Zonas de trabajo</h3><p>Mecanizado, soldadura eléctrica y frío.</p></div>
+  </div>
+  <div class="main-panel active" id="panel-zonas">
+    <div class="zone-nav">
+      <button class="zone-btn active" data-zone="mecanizado">🔧 Mecanizado</button>
+      <button class="zone-btn" data-zone="soldadura">🔥 Soldadura eléctrica</button>
+      <button class="zone-btn" data-zone="frio">❄️ Frío</button>
+    </div>
+    
+    <section class="zone-panel" id="zone-mecanizado">
+      <div class="zone-fixed-gallery" aria-label="Fotografías de la zona de zona de mecanizado">
+  <button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%201.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%201.jpeg?raw=true" alt="Fotografía 1 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%202.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%202.jpeg?raw=true" alt="Fotografía 2 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%203.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%203.jpeg?raw=true" alt="Fotografía 3 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%204.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%204.jpeg?raw=true" alt="Fotografía 4 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%205.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%205.jpeg?raw=true" alt="Fotografía 5 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%206.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%206.jpeg?raw=true" alt="Fotografía 6 — Zona de mecanizado" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%207.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Mecanizado%207.jpeg?raw=true" alt="Fotografía 7 — Zona de mecanizado" loading="lazy"></button>
+</div>
+      <div class="zone-intro">
+        <div class="zone-icon">🔧</div>
+        <div><h3>Zona de mecanizado</h3><p>Zona destinada a trabajos sobre materiales, principalmente metálicos, mediante operaciones de corte, taladrado, desbaste y mecanizado. Desde el punto de vista preventivo, deben controlarse especialmente los riesgos derivados de máquinas y herramientas, manipulación de materiales, elementos cortantes o punzantes y condiciones de orden, limpieza y circulación.</p></div>
+      </div>
+      <details class="accordion">
+        <summary>⚠️ Riesgos generales de la zona <span>+</span></summary>
+        <div class="accordion-content"><div class="risk-grid">
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🚶</span><div><h4>Caídas al mismo nivel</h4><p>Materiales, herramientas, cables, virutas, restos de mecanizado o líquidos pueden ocupar las zonas de paso.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener despejadas las zonas de circulación y los puestos de trabajo.</li><li>Retirar periódicamente virutas, residuos y materiales.</li><li>Evitar que los cables atraviesen zonas de paso.</li><li>Limpiar inmediatamente cualquier derrame.</li><li>Mantener los materiales correctamente almacenados.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">⚠️</span><div><h4>Golpes</h4><p>Pueden producirse contra máquinas, bancos, herramientas, materiales almacenados o elementos que sobresalgan.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener libres las zonas de paso.</li><li>Almacenar correctamente los materiales.</li><li>Evitar que piezas, perfiles o herramientas sobresalgan de las zonas de almacenamiento.</li><li>Mantener una separación adecuada entre los puestos de trabajo.</li><li>Señalizar o delimitar las zonas con riesgos específicos.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">✂️</span><div><h4>Cortes y pinchazos</h4><p>Riesgo durante la manipulación de piezas metálicas, virutas, herramientas y materiales con bordes o superficies cortantes.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar guantes adecuados cuando la tarea lo permita.</li><li>Manipular las piezas con precaución.</li><li>No retirar virutas directamente con las manos.</li><li>Utilizar herramientas o útiles adecuados para retirar residuos.</li><li>Depositar los restos cortantes o punzantes en recipientes adecuados.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔄</span><div><h4>Atrapamientos</h4><p>Pueden producirse por contacto con elementos móviles, especialmente durante mecanizado, ajuste, limpieza o mantenimiento.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener colocadas y en buen estado las protecciones.</li><li>No introducir las manos en zonas de peligro durante el funcionamiento.</li><li>No realizar ajustes o intervenciones con las máquinas en movimiento.</li><li>Detener y desconectar antes de limpieza, mantenimiento o ajuste.</li><li>Evitar ropa holgada, pulseras, cadenas y otros elementos que puedan engancharse.</li><li>Mantener el cabello recogido cuando sea necesario.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💥</span><div><h4>Proyección de partículas</h4><p>Durante corte, taladrado, desbaste o mecanizado pueden proyectarse virutas, partículas metálicas u otros fragmentos.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar protección ocular adecuada.</li><li>Utilizar protección facial cuando exista riesgo elevado.</li><li>Mantener instaladas las protecciones.</li><li>Utilizar herramientas y accesorios adecuados.</li><li>No situarse en la trayectoria de posibles proyecciones.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🧰</span><div><h4>Rotura de herramientas</h4><p>Una utilización incorrecta, desgaste, velocidad inadecuada o sujeción incorrecta puede provocar roturas y proyecciones.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Comprobar el estado de las herramientas antes de utilizarlas.</li><li>Utilizar accesorios adecuados para cada máquina y operación.</li><li>Respetar las condiciones de utilización del fabricante.</li><li>Sujetar correctamente las piezas.</li><li>Sustituir herramientas deterioradas.</li><li>No utilizar herramientas modificadas o deficientes.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">📦</span><div><h4>Caída de objetos</h4><p>Puede producirse por colocación inadecuada de herramientas, piezas o materiales en estanterías, bancos o almacenamiento.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Almacenar los materiales de forma estable.</li><li>Colocar los elementos más pesados en las zonas inferiores.</li><li>No sobrecargar estanterías o sistemas de almacenamiento.</li><li>Evitar que los materiales sobresalgan.</li><li>Revisar periódicamente los sistemas de almacenamiento.</li><li>Mantener sujetos los materiales que puedan desplazarse o caer.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">⚡</span><div><h4>Riesgo eléctrico</h4><p>Puede existir contacto directo o indirecto por instalaciones, máquinas, cables, enchufes o equipos en mal estado.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Comprobar periódicamente cables, enchufes y conexiones.</li><li>No utilizar equipos dañados o con anomalías.</li><li>No manipular instalaciones eléctricas sin formación y autorización.</li><li>No sobrecargar tomas de corriente.</li><li>Mantener cables alejados de zonas de paso.</li><li>No manipular equipos eléctricos con las manos mojadas.</li><li>Desconectar antes de mantenimiento o ajuste.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔥</span><div><h4>Incendio</h4><p>Relacionado con instalaciones eléctricas, equipos que generan calor, chispas, materiales combustibles o residuos.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener limpia y ordenada la zona.</li><li>Evitar acumulación de materiales combustibles.</li><li>Mantener despejados los medios de extinción.</li><li>Revisar instalaciones eléctricas y equipos.</li><li>No almacenar materiales dificultando la evacuación.</li><li>Conocer ubicación y utilización de medios de extinción.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">👂</span><div><h4>Ruido</h4><p>Determinadas máquinas y herramientas pueden generar niveles elevados de ruido dependiendo de la exposición.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener correctamente los equipos.</li><li>Reducir el tiempo de exposición cuando sea posible.</li><li>Utilizar protección auditiva cuando sea necesaria.</li><li>Evitar permanecer innecesariamente junto a máquinas en funcionamiento.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">〰️</span><div><h4>Vibraciones</h4><p>Algunas máquinas y herramientas transmiten vibraciones a manos, brazos o cuerpo.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener herramientas y máquinas en buen estado.</li><li>Utilizar equipos adecuados.</li><li>Reducir el tiempo de exposición.</li><li>Realizar pausas cuando sea necesario.</li><li>Utilizar sistemas o elementos que reduzcan la transmisión cuando estén disponibles.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💨</span><div><h4>Polvo y partículas</h4><p>Determinadas operaciones pueden generar polvo, partículas y residuos que afecten a vías respiratorias u ojos.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener una ventilación adecuada.</li><li>Utilizar sistemas de extracción cuando sean necesarios.</li><li>Evitar la acumulación de residuos.</li><li>Utilizar protección respiratoria cuando la evaluación lo determine.</li><li>Utilizar protección ocular adecuada.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💪</span><div><h4>Sobreesfuerzos</h4><p>Pueden aparecer durante manipulación y transporte de piezas, materiales o equipos pesados.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Valorar peso y características de la carga.</li><li>Utilizar medios auxiliares cuando sea necesario.</li><li>Mantener una postura adecuada.</li><li>Evitar movimientos bruscos.</li><li>Solicitar ayuda cuando el peso o dimensiones dificulten la manipulación.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🧍</span><div><h4>Posturas forzadas</h4><p>Tareas prolongadas pueden provocar posturas incómodas, sobreesfuerzos y fatiga muscular.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Adaptar altura y posición del puesto cuando sea posible.</li><li>Mantener una postura adecuada.</li><li>Evitar periodos prolongados en posiciones forzadas.</li><li>Realizar pausas y cambios de postura.</li><li>Organizar herramientas y materiales para facilitar el acceso.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🌡️</span><div><h4>Quemaduras</h4><p>Pueden producirse por superficies calientes, piezas a elevada temperatura o chispas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Dejar enfriar las piezas antes de manipularlas cuando sea necesario.</li><li>Utilizar herramientas auxiliares para piezas calientes.</li><li>Utilizar guantes adecuados cuando la tarea lo requiera.</li><li>Evitar contacto directo con superficies calientes.</li><li>Mantener materiales combustibles alejados de fuentes de calor o chispas.</li></ul>
+        </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🛡️ Medidas preventivas generales <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🎓</span><h4>Formación e información</h4></div>
+      <p>Las personas que utilicen máquinas y herramientas deben recibir información y formación suficiente sobre riesgos y medidas preventivas. No deben utilizar equipos para los que no hayan recibido formación.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔎</span><h4>Comprobación previa</h4></div>
+      <p>Antes de comenzar, comprobar protecciones, elementos móviles, cables, conexiones, interruptores, herramientas y sistemas de sujeción. Las anomalías deben comunicarse y el equipo no debe utilizarse hasta comprobar su seguridad.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🛡️</span><h4>Protección de las máquinas</h4></div>
+      <p>Las máquinas deben disponer de protecciones para evitar el acceso a partes peligrosas. No se deben retirar, anular ni modificar.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>⏹️</span><h4>Puesta en marcha y parada</h4></div>
+      <p>Antes de poner una máquina en funcionamiento hay que comprobar que no haya personas en zonas de peligro y que la pieza esté correctamente colocada y sujeta. Para ajustes, limpieza o mantenimiento, la máquina debe estar parada y desconectada.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔧</span><h4>Mantenimiento</h4></div>
+      <p>Debe realizarse siguiendo las instrucciones del fabricante y por personal con la formación necesaria. Los defectos que puedan afectar a la seguridad deben comunicarse.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Orden y limpieza</h4></div>
+      <p>Son fundamentales para prevenir caídas, golpes, cortes y otros accidentes. Pasos, accesos y salidas deben mantenerse despejados y los residuos retirarse periódicamente.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>👕</span><h4>Ropa de trabajo</h4></div>
+      <p>Debe ser adecuada y sin elementos que puedan engancharse. Ante riesgo de atrapamiento se deben evitar prendas holgadas, cadenas, pulseras y accesorios, manteniendo el cabello recogido.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>📦</span><h4>Almacenamiento</h4></div>
+      <p>Materiales y herramientas deben almacenarse de forma estable y ordenada, respetando capacidades. Los elementos pesados se sitúan preferentemente en zonas inferiores y no deben colocarse objetos que puedan caer o sobresalir.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🏭 Espacios y condiciones de trabajo <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🧰</span><h4>Bancos y puestos de trabajo</h4></div>
+      <p>Mantenerlos despejados y organizados, dejando espacio suficiente. Herramientas y materiales habituales deben quedar accesibles sin adoptar posturas forzadas.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔩</span><h4>Tornillos de banco y sujeción</h4></div>
+      <p>Las piezas deben quedar correctamente sujetas antes de mecanizar. Los sistemas deben mantenerse en buen estado y utilizarse según la pieza y el trabajo.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>📦</span><h4>Almacenamiento de materiales y piezas</h4></div>
+      <p>Evitar apilamientos que puedan desplazarse o caer. Perfiles, tubos y piezas largas deben quedar sujetos y colocados para evitar caída, desplazamiento o proyección hacia zonas de paso.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🗄️</span><h4>Armarios y almacenamiento de herramientas</h4></div>
+      <p>Conservar las herramientas ordenadas y en condiciones adecuadas. Utilizar armarios, estanterías y cajones respetando su capacidad.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>⚡</span><h4>Instalación eléctrica</h4></div>
+      <p>Mantenerla en condiciones adecuadas, evitando cables sueltos, conexiones defectuosas y sobrecargas. Tomas y mandos deben permanecer accesibles.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Orden, limpieza y circulación</h4></div>
+      <p>Zonas de circulación despejadas de obstáculos, residuos, herramientas y cables. Retirar residuos con medios adecuados, evitando la manipulación directa de residuos cortantes.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💡</span><h4>Iluminación y ventilación</h4></div>
+      <p>Debe existir iluminación suficiente para realizar tareas con seguridad y detectar peligros. La ventilación debe mantener condiciones ambientales adecuadas y reducir polvo, partículas o contaminantes.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🚨</span><h4>Señalización y emergencias</h4></div>
+      <p>Zonas de riesgo, equipos de emergencia y vías de evacuación deben estar señalizados y accesibles. Los medios de extinción no deben quedar bloqueados.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🦺 Equipos de protección individual <span>+</span></summary>
+        <div class="accordion-content"><ul class="epi-list"><li>🥽 Gafas de seguridad frente a proyección de partículas, virutas y fragmentos.</li><li>🛡️ Pantalla facial cuando exista riesgo elevado de proyección de partículas o chispas.</li><li>👂 Protección auditiva cuando el nivel de ruido o el tiempo de exposición lo haga necesario.</li><li>🧤 Guantes adecuados para manipulación de materiales, piezas o virutas cuando exista riesgo de cortes o abrasiones. No deben utilizarse junto a elementos giratorios cuando aumenten el riesgo de atrapamiento.</li><li>🥾 Calzado de seguridad frente a golpes, caída de objetos, cortes y otros riesgos asociados a la manipulación de materiales.</li><li>😷 Protección respiratoria cuando ventilación y extracción no sean suficientes y exista exposición a polvo o partículas.</li><li>👕 Ropa de trabajo adecuada, evitando prendas holgadas, accesorios o elementos que puedan engancharse.</li></ul></div>
+      </details>
+      <details class="accordion">
+        <summary>🔎 Observaciones y criterio preventivo <span>+</span></summary>
+        <div class="accordion-content"><div class="highlight-box">La zona debe mantenerse permanentemente en condiciones adecuadas de orden, limpieza y seguridad. Las máquinas y herramientas deben utilizarse únicamente para las operaciones para las que fueron diseñadas, manteniendo sus protecciones. Antes de comenzar se debe comprobar el estado del equipo; durante el mecanizado se debe prestar especial atención a partes móviles, zonas de corte, proyecciones y puntos de atrapamiento. Las operaciones de limpieza, ajuste, cambio de herramientas o mantenimiento deben realizarse con el equipo detenido y desconectado, evitando la puesta en marcha accidental.</div></div>
+      </details>
+    </section>
+    <section class="zone-panel" id="zone-soldadura">
+      <div class="zone-fixed-gallery" aria-label="Fotografías de la zona de zona de soldadura eléctrica">
+  <button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%201.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%201.jpeg?raw=true" alt="Fotografía 1 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%202.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%202.jpeg?raw=true" alt="Fotografía 2 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%203.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%203.jpeg?raw=true" alt="Fotografía 3 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%204.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%204.jpeg?raw=true" alt="Fotografía 4 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%205.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%205.jpeg?raw=true" alt="Fotografía 5 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%206.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%206.jpeg?raw=true" alt="Fotografía 6 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%207.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%207.jpeg?raw=true" alt="Fotografía 7 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%208.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%208.jpeg?raw=true" alt="Fotografía 8 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%209.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%209.jpeg?raw=true" alt="Fotografía 9 — Zona de soldadura eléctrica" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%2010.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Soldadura%2010.jpeg?raw=true" alt="Fotografía 10 — Zona de soldadura eléctrica" loading="lazy"></button>
+</div>
+      <div class="zone-intro">
+        <div class="zone-icon">🔥</div>
+        <div><h3>Zona de soldadura eléctrica</h3><p>Zona destinada a trabajos de unión y reparación de piezas metálicas mediante soldadura por arco eléctrico. Los riesgos preventivos principales se relacionan con radiaciones, humos y gases, proyección de partículas incandescentes, quemaduras, contactos eléctricos e incendios, además del orden, limpieza, manipulación de materiales y posturas.</p></div>
+      </div>
+      <details class="accordion">
+        <summary>⚠️ Riesgos generales de la zona <span>+</span></summary>
+        <div class="accordion-content"><div class="risk-grid">
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">⚡</span><div><h4>Contactos eléctricos</h4><p>Los equipos de soldadura y circuitos de soldeo generan riesgo de contacto directo o indirecto; también pueden producirse accidentes por cables, conexiones o equipos deteriorados.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Comprobar cables, conexiones, bornes, porta-electrodos y demás elementos.</li><li>Mantener correctamente la puesta a tierra.</li><li>No manipular instalaciones eléctricas sin autorización y formación.</li><li>No trabajar con manos, guantes o ropa húmedos.</li><li>Evitar que los cables contacten con superficies calientes, charcos, bordes cortantes o zonas de daño.</li><li>Desconectar antes de mantenimiento, ajuste o reparación.</li><li>No sustituir electrodos con el equipo conectado ni con manos desnudas o guantes húmedos.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🌡️</span><div><h4>Quemaduras</h4><p>Pueden producirse por piezas soldadas, electrodos, escoria, partículas incandescentes o superficies calientes.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar guantes y ropa de protección adecuada.</li><li>Utilizar mandil, manguitos y polainas cuando la operación lo requiera.</li><li>No tocar piezas inmediatamente después de soldarlas.</li><li>Utilizar herramientas auxiliares para piezas calientes.</li><li>Evitar que partículas incandescentes contacten con la piel.</li><li>Dejar enfriar los materiales antes de almacenarlos o manipularlos cuando sea necesario.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💥</span><div><h4>Proyección de partículas y material incandescente</h4><p>Durante soldadura y eliminación de escoria pueden proyectarse partículas, fragmentos y material incandescente.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar pantalla o careta de soldadura adecuada.</li><li>Utilizar protección ocular complementaria cuando sea necesario.</li><li>Mantener pantallas de separación correctamente colocadas.</li><li>Evitar que otras personas permanezcan próximas sin protección.</li><li>Utilizar herramientas apropiadas para eliminar escoria.</li><li>Mantener la zona libre de materiales que puedan dañarse por las proyecciones.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">☀️</span><div><h4>Radiaciones ultravioleta, infrarroja y luz intensa</h4><p>El arco genera radiaciones no ionizantes que pueden lesionar ojos y piel del soldador y personas próximas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar pantalla o careta con filtro adecuado.</li><li>No mirar directamente al arco.</li><li>Proteger las zonas de piel expuestas.</li><li>Utilizar ropa que cubra adecuadamente el cuerpo.</li><li>Utilizar cortinas o pantallas para proteger a otras personas.</li><li>No iniciar el arco cuando haya personas próximas sin protección visual adecuada.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💨</span><div><h4>Humos y gases</h4><p>La soldadura genera humos y gases procedentes del material base, recubrimientos y material de aporte.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar extracción localizada siempre que esté disponible.</li><li>Mantener ventilación adecuada.</li><li>No situarse entre la pieza y el sistema de extracción.</li><li>Evitar colocar la cara directamente sobre la soldadura.</li><li>Mantener la cabeza alejada del punto de generación.</li><li>Limpiar previamente pinturas, grasas, desengrasantes u otras sustancias cuando sea necesario.</li><li>Usar protección respiratoria como complemento cuando la evaluación del riesgo lo determine.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔥</span><div><h4>Incendio</h4><p>Chispas y partículas incandescentes pueden encender materiales combustibles próximos.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Retirar materiales combustibles antes de comenzar.</li><li>Alejar papeles, cartones, trapos, disolventes y otros inflamables.</li><li>Utilizar mantas ignífugas cuando sea necesario.</li><li>Mantener medios de extinción disponibles y accesibles.</li><li>Utilizar pantallas adecuadas.</li><li>Revisar la zona después de finalizar para detectar brasas o puntos calientes.</li><li>Depositar residuos en recipientes adecuados.</li><li>No soldar sobre materiales o recipientes que puedan contener sustancias inflamables sin adoptar las medidas necesarias.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💣</span><div><h4>Explosión</h4><p>Puede existir riesgo cerca de sustancias inflamables, gases, vapores o recipientes que hayan contenido productos combustibles.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>No soldar en atmósferas potencialmente explosivas.</li><li>Retirar sustancias inflamables.</li><li>Comprobar previamente las condiciones del lugar.</li><li>No trabajar en recipientes que hayan contenido inflamables sin aplicar las medidas correspondientes.</li><li>Mantener ventilación adecuada.</li><li>Evitar fuentes de ignición innecesarias.</li><li>Mantener equipos eléctricos y sistemas de extracción correctamente.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔥</span><div><h4>Incendio de cables y equipos</h4><p>El calor, chispas, humedad y esfuerzos mecánicos pueden deteriorar cables y conexiones.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener cables alejados de chispas y superficies calientes.</li><li>Evitar tirones o aplastamientos.</li><li>Revisar periódicamente el aislamiento.</li><li>Sustituir cables deteriorados.</li><li>Mantener conexiones protegidas.</li><li>Desconectar el equipo cuando no vaya a utilizarse durante periodos prolongados.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">👂</span><div><h4>Ruido</h4><p>Puede generarse ruido, especialmente durante picado de escoria, golpes sobre piezas o uso de herramientas eléctricas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener equipos y herramientas en buen estado.</li><li>Reducir el tiempo de exposición cuando sea posible.</li><li>Utilizar protección auditiva cuando sea necesaria.</li><li>Evitar permanecer innecesariamente cerca de operaciones ruidosas.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🚶</span><div><h4>Caídas al mismo nivel</h4><p>Cables, herramientas, piezas, residuos, restos de electrodos o materiales pueden ocupar las zonas de paso.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener despejadas las circulaciones.</li><li>Recoger cables cuando no estén en uso.</li><li>Retirar restos de electrodos y escoria.</li><li>Evitar almacenar materiales en zonas de paso.</li><li>Mantener suelo limpio y libre de obstáculos.</li><li>Depositar residuos en recipientes correspondientes.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">✂️</span><div><h4>Golpes y cortes</h4><p>La manipulación de perfiles, chapas y piezas metálicas puede provocar golpes, cortes o pinchazos.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Manipular piezas con métodos seguros.</li><li>Utilizar guantes adecuados.</li><li>Mantener materiales correctamente almacenados.</li><li>Eliminar o proteger bordes cortantes cuando sea posible.</li><li>Utilizar herramientas adecuadas.</li><li>Mantener zonas despejadas.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">📦</span><div><h4>Caída de objetos</h4><p>Piezas, herramientas o materiales pueden caer si no están correctamente colocados.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Almacenar de forma estable.</li><li>Evitar sobrecargar estanterías y armarios.</li><li>Colocar elementos pesados en zonas inferiores.</li><li>Evitar objetos sobresalientes.</li><li>Revisar sistemas de almacenamiento.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💪</span><div><h4>Sobreesfuerzos y manipulación de cargas</h4><p>La manipulación de piezas metálicas voluminosas o pesadas puede requerir esfuerzos importantes.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Valorar peso y dimensiones.</li><li>Utilizar medios auxiliares para cargas pesadas.</li><li>Solicitar ayuda cuando sea necesario.</li><li>Evitar movimientos bruscos.</li><li>Mantener postura adecuada.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🧍</span><div><h4>Posturas forzadas</h4><p>La soldadura puede exigir posiciones estáticas o incómodas durante cierto tiempo.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Adaptar la posición a la tarea.</li><li>Colocar piezas a altura adecuada.</li><li>Evitar periodos prolongados en posiciones forzadas.</li><li>Realizar cambios frecuentes de posición y pausas.</li><li>Utilizar soportes o sistemas de posicionamiento.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔥</span><div><h4>Superficies calientes</h4><p>Las piezas soldadas pueden permanecer a elevada temperatura después del trabajo.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Señalizar o delimitar piezas calientes cuando sea necesario.</li><li>Utilizar herramientas auxiliares.</li><li>No depositar piezas calientes junto a combustibles.</li><li>Esperar el tiempo necesario antes de manipularlas directamente.</li></ul>
+        </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🛡️ Medidas preventivas generales <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🎓</span><h4>Formación e información</h4></div>
+      <p>Los trabajos deben realizarlos personas con formación y capacitación necesarias. Antes de empezar hay que conocer material, equipo y procedimiento.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔎</span><h4>Comprobación previa</h4></div>
+      <p>Comprobar cables, conexiones, porta-electrodos, pinza de masa, aislamiento, interruptores, mandos y estado general. Las anomalías deben comunicarse y el equipo no debe utilizarse hasta solucionarlas.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Preparación del puesto</h4></div>
+      <p>Retirar combustibles, comprobar ventilación y medios de extinción, colocar pantallas, organizar cables y herramientas, mantener pasos libres y comprobar la estabilidad de la pieza.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>☀️</span><h4>Protección frente a radiaciones</h4></div>
+      <p>La zona debe estar delimitada mediante pantallas o cortinas adecuadas. Estas protecciones colectivas no sustituyen la protección individual.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💨</span><h4>Extracción y ventilación</h4></div>
+      <p>Debe garantizarse ventilación suficiente. La extracción localizada debe utilizarse y mantenerse correctamente; el soldador debe colocarse para que los humos sean captados sin pasar por su zona respiratoria.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔧</span><h4>Mantenimiento</h4></div>
+      <p>Realizar mantenimiento preventivo según fabricante. Las intervenciones eléctricas o sobre elementos internos corresponden a personal autorizado y capacitado.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Orden y limpieza</h4></div>
+      <p>Retirar restos de electrodos, escoria, recortes y residuos. Al finalizar, el equipo debe quedar detenido y la zona organizada.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>👕</span><h4>Ropa de trabajo</h4></div>
+      <p>Debe cubrir adecuadamente el cuerpo y ser resistente a las condiciones de soldadura. Evitar ropa impregnada de grasa, disolventes u otras sustancias inflamables.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🏭 Espacios y condiciones de trabajo <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🔥</span><h4>Puestos de soldadura</h4></div>
+      <p>Espacio suficiente, pieza sobre superficie estable y altura que permita postura adecuada; debe evitarse la interferencia con otros puestos.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🛡️</span><h4>Pantallas y cortinas</h4></div>
+      <p>Separan las zonas de soldadura y protegen frente a radiaciones, chispas y proyecciones. Deben estar correctamente colocadas.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧱</span><h4>Bancos y superficies</h4></div>
+      <p>Estables, resistentes y adecuados para soportar piezas. Mantenerlos limpios de residuos.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>📦</span><h4>Almacenamiento</h4></div>
+      <p>Herramientas, EPI y accesorios deben almacenarse ordenadamente. Pesados abajo, sin sobresalir y evitando acumulación de cables y materiales.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>⚡</span><h4>Instalación eléctrica</h4></div>
+      <p>Mantener protegida y en condiciones adecuadas. Organizar cables para evitar obstáculos y daños por calor, chispas, bordes o aplastamiento.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Orden y circulación</h4></div>
+      <p>Circulaciones despejadas, cables sin riesgo de tropiezo y residuos retirados periódicamente.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💨</span><h4>Ventilación y extracción</h4></div>
+      <p>Ventilación suficiente y, cuando sea necesario, extracción localizada. No debe quedar bloqueada por materiales.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🚨</span><h4>Señalización y emergencias</h4></div>
+      <p>Señalizar riesgos y EPI. Medios de extinción próximos, señalizados, accesibles y sin obstáculos.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🦺 Equipos de protección individual <span>+</span></summary>
+        <div class="accordion-content"><ul class="epi-list"><li>🛡️ Pantallas y máscaras de soldadura frente a radiaciones y proyecciones.</li><li>🧤 Guantes de soldadura frente a calor, chispas, proyecciones y contacto con piezas metálicas.</li><li>🥋 Protección para ropa y cuerpo, como mandiles y protectores de cuero, frente a chispas y partículas incandescentes.</li><li>🥽 Protección ocular adecuada cuando exista riesgo de proyección, especialmente en limpieza o eliminación de escoria.</li><li>🥾 Calzado de seguridad frente a caída de objetos, golpes, piezas calientes y proyecciones.</li><li>😷 Protección respiratoria cuando ventilación y extracción no permitan controlar suficientemente humos y gases.</li><li>👂 Protección auditiva cuando el ruido de las operaciones lo haga necesario.</li></ul></div>
+      </details>
+      <details class="accordion">
+        <summary>🔎 Observaciones y criterio preventivo <span>+</span></summary>
+        <div class="accordion-content"><div class="highlight-box">La zona debe organizarse con separación adecuada entre puestos, circulación despejada y delimitación correcta. Las pantallas y cortinas son una medida importante de protección colectiva. Debe cuidarse especialmente el estado de cables y equipos, el almacenamiento estable, la retirada de residuos y la ventilación. Antes de trabajos en caliente se deben retirar combustibles y, al finalizar, revisar el entorno para detectar partículas incandescentes o puntos calientes.</div></div>
+      </details>
+    </section>
+    <section class="zone-panel" id="zone-frio">
+      <div class="zone-fixed-gallery" aria-label="Fotografías de la zona de zona de frío">
+  <button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%201.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%201.jpeg?raw=true" alt="Fotografía 1 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%202.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%202.jpeg?raw=true" alt="Fotografía 2 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%203.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%203.jpeg?raw=true" alt="Fotografía 3 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%204.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%204.jpeg?raw=true" alt="Fotografía 4 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%205.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%205.jpeg?raw=true" alt="Fotografía 5 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%206.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%206.jpeg?raw=true" alt="Fotografía 6 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%207.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%207.jpeg?raw=true" alt="Fotografía 7 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%208.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%208.jpeg?raw=true" alt="Fotografía 8 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%209.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%209.jpeg?raw=true" alt="Fotografía 9 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2010.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2010.jpeg?raw=true" alt="Fotografía 10 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2011.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2011.jpeg?raw=true" alt="Fotografía 11 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2012.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2012.jpeg?raw=true" alt="Fotografía 12 — Zona de frío" loading="lazy"></button><button class="zone-fixed-photo image-btn" type="button" data-image="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2013.jpeg?raw=true" data-caption=""><img src="https://github.com/jperflo2002/trabajoprl/blob/main/Zona%20Aires%2013.jpeg?raw=true" alt="Fotografía 13 — Zona de frío" loading="lazy"></button>
+</div>
+      <div class="zone-intro">
+        <div class="zone-icon">❄️</div>
+        <div><h3> Zona de frío</h3><p>Zona destinada a prácticas relacionadas con instalaciones frigoríficas, sistemas de climatización y equipos para producción, regulación y mantenimiento del frío. Se trabaja con circuitos frigoríficos y bancos de prácticas, con especial atención a riesgos eléctricos, mecánicos, presión, refrigerantes y condiciones térmicas.</p></div>
+      </div>
+      <details class="accordion">
+        <summary>⚠️ Riesgos generales de la zona <span>+</span></summary>
+        <div class="accordion-content"><div class="risk-grid">
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">⚡</span><div><h4>Contacto eléctrico</h4><p>Presente por cuadros, centralitas, motores, compresores, ventiladores, cableado y equipos de alimentación.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener instalaciones y equipos en buen estado.</li><li>Comunicar anomalías antes de continuar.</li><li>Utilizar los equipos según sus condiciones de seguridad y la formación recibida.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🧯</span><div><h4>Riesgo por presión</h4><p>Los circuitos trabajan con refrigerantes a presión; una manipulación incorrecta puede liberar bruscamente presión.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Comprobar la presión antes de desmontar elementos.</li><li>Utilizar equipos de medida adecuados.</li><li>No intervenir en conexiones, válvulas o mangueras sin comprobar condiciones seguras.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💨</span><div><h4>Fugas de refrigerante</h4><p>Una fuga puede producir exposición al refrigerante; según el producto, puede afectar a la salud, desplazar oxígeno o presentar inflamabilidad.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener medidas para reducir y detectar fugas.</li><li>Comprobar conexiones, válvulas, mangueras y tuberías.</li><li>Identificar el refrigerante antes de intervenir.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🫁</span><div><h4>Asfixia o desplazamiento de oxígeno</h4><p>Una fuga importante en un espacio poco ventilado puede desplazar parte del oxígeno disponible.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener ventilación adecuada.</li><li>Controlar posibles fugas.</li><li>Prestar especial atención en espacios reducidos o próximos a cámaras y equipos.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔥</span><div><h4>Inflamabilidad de refrigerantes</h4><p>Los refrigerantes inflamables presentan riesgo adicional en caso de fuga. En la zona se identifica R-290 (propano), categoría A3.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Evitar fuentes de ignición.</li><li>Garantizar ventilación adecuada.</li><li>Extremar el control de fugas.</li><li>Identificar previamente el refrigerante y sus condiciones específicas de seguridad.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🌡️</span><div><h4>Quemaduras por superficies calientes</h4><p>Compresores, tuberías y componentes pueden alcanzar temperaturas elevadas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Evitar contacto directo.</li><li>Esperar a que disminuya la temperatura antes de determinadas operaciones de mantenimiento.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">❄️</span><div><h4>Quemaduras por frío</h4><p>Componentes y refrigerante liberado accidentalmente pueden alcanzar temperaturas muy bajas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Evitar contacto directo con superficies muy frías o refrigerante liberado.</li><li>Utilizar protección adecuada según la tarea.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🔄</span><div><h4>Atrapamientos</h4><p>Principalmente en ventiladores, motores y otros elementos móviles.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>No retirar protecciones.</li><li>No introducir manos en zonas móviles mientras los equipos funcionen.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">✂️</span><div><h4>Cortes</h4><p>Intercambiadores, aletas metálicas, tuberías, chapas y otros componentes pueden producir cortes.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Trabajar con cuidado.</li><li>Utilizar guantes adecuados cuando la operación lo requiera.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">👂</span><div><h4>Ruido y vibraciones</h4><p>Compresores, ventiladores y otros equipos pueden generar ruido y vibraciones.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar protección auditiva cuando la exposición lo requiera.</li><li>Mantener equipos en condiciones adecuadas.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🚶</span><div><h4>Caídas al mismo nivel</h4><p>Mangueras, cables, tuberías y otros elementos pueden quedar en zonas de paso.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Mantener espacios de circulación despejados.</li><li>Recoger elementos móviles tras su uso.</li><li>Aplicar medidas de orden y limpieza.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">📦</span><div><h4>Caída de objetos</h4><p>Puede afectar a herramientas, componentes, botellas o piezas almacenadas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Colocar elementos pesados de forma estable y preferentemente en zonas inferiores.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">💪</span><div><h4>Sobreesfuerzos</h4><p>El transporte de compresores, equipos, botellas o componentes puede requerir esfuerzo físico.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Utilizar medios auxiliares cuando sea posible.</li><li>Aplicar técnicas adecuadas de manipulación de cargas.</li></ul>
+        </article>
+        <article class="risk-card">
+          <div class="risk-head"><span class="risk-icon">🧍</span><div><h4>Posturas forzadas</h4><p>Al trabajar en la parte inferior de bancos, dentro de cámaras o sobre determinados equipos pueden adoptarse posturas incómodas.</p></div></div>
+          <div class="subhead">🛡️ Medidas preventivas</div>
+          <ul class=""><li>Trabajar a una altura adecuada.</li><li>Evitar mantener durante mucho tiempo posturas forzadas.</li></ul>
+        </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🛡️ Medidas preventivas generales <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🎓</span><h4>Formación e información</h4></div>
+      <p>Antes de utilizar equipos frigoríficos, eléctricos o de climatización, el alumno debe conocer su funcionamiento, riesgos y medidas preventivas. No se realizarán operaciones sin formación correspondiente.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔎</span><h4>Comprobación previa</h4></div>
+      <p>Comprobar equipo, cables, conexiones, tuberías, mangueras, cuadros, protecciones y elementos de control. Las anomalías deben comunicarse al responsable.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>⏹️</span><h4>Desconexión antes de intervenir</h4></div>
+      <p>Antes de mantenimiento, desmontaje o modificación se debe detener y desconectar cuando corresponda, evitando una puesta en marcha accidental.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧪</span><h4>Control de refrigerantes</h4></div>
+      <p>Identificar el refrigerante antes de trabajar. No manipularlo sin conocer sus características y procedimientos adecuados de recuperación, carga o extracción.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💨</span><h4>Control de fugas</h4></div>
+      <p>Comprobar periódicamente conexiones, válvulas, mangueras y tuberías. Con refrigerantes inflamables como R-290, extremar control de fugas y evitar fuentes de ignición.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧹</span><h4>Orden y limpieza</h4></div>
+      <p>Mantener bancos y zonas de paso limpios y ordenados. Recoger herramientas, mangueras y cables al terminar.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🔧</span><h4>Mantenimiento</h4></div>
+      <p>Realizarlo siguiendo instrucciones del fabricante y con el equipo en condiciones seguras. No realizar modificaciones improvisadas ni eliminar protecciones.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🚨</span><h4>Señalización</h4></div>
+      <p>Los equipos deben disponer de señalización de los riesgos presentes. En las fotografías se observan señales de riesgo eléctrico y elementos de corte y aislamiento en algunos cuadros.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🏭 Espacios y condiciones de trabajo <span>+</span></summary>
+        <div class="accordion-content"><div class="info-grid">
+    <article class="info-card">
+      <div class="info-title"><span>🧰</span><h4>Bancos de prácticas</h4></div>
+      <p>Mantenerlos despejados para trabajar cómodamente y evitar caídas o tropiezos con herramientas, cables y componentes.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🚶</span><h4>Zona de circulación</h4></div>
+      <p>Pasillos y accesos libres de cables, mangueras, herramientas y componentes. Debe existir espacio suficiente para desplazarse con seguridad.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🗄️</span><h4>Armarios y almacenamiento</h4></div>
+      <p>Almacenar herramientas y componentes de forma ordenada. Pesados abajo y sin sobrecargar estanterías.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>📦</span><h4>Componentes frigoríficos</h4></div>
+      <p>Tuberías, intercambiadores, compresores y demás componentes deben almacenarse estables y sin riesgo de golpes o deformaciones.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>🧯</span><h4>Botellas</h4></div>
+      <p>Mantenerlas identificadas, estables y protegidas frente a golpes y fuentes de calor. Para refrigerantes inflamables se deben respetar las condiciones específicas de almacenamiento.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>⚡</span><h4>Instalación eléctrica</h4></div>
+      <p>Cuadros, cables, tomas y protecciones correctamente instalados. No utilizar cables deteriorados ni realizar conexiones improvisadas.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💨</span><h4>Ventilación y extracción</h4></div>
+      <p>Especialmente importante por posibles fugas. Mantener operativos los sistemas y no obstruir entradas o salidas de aire.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-title"><span>💡</span><h4>Iluminación</h4></div>
+      <p>Debe permitir identificar conexiones, instrumentos, cuadros, tuberías y componentes; una iluminación insuficiente puede aumentar errores.</p>
+    </article></div></div>
+      </details>
+      <details class="accordion">
+        <summary>🦺 Equipos de protección individual <span>+</span></summary>
+        <div class="accordion-content"><ul class="epi-list"><li>🥽 Gafas de seguridad cuando exista riesgo de proyección, durante determinadas operaciones o ante posible liberación accidental de refrigerante.</li><li>🧤 Guantes adecuados durante manipulación de componentes, tuberías, chapas y elementos que puedan producir cortes; no usar guantes cuando aumenten el riesgo de atrapamiento.</li><li>🥾 Calzado de seguridad frente a golpes y caída de objetos, especialmente al transportar o manipular equipos y componentes.</li><li>❄️ Ropa y protección adecuada frente al frío cuando las prácticas impliquen bajas temperaturas o el interior de cámaras frigoríficas.</li><li>👕 Ropa de trabajo adecuada, evitando prendas holgadas, joyas u objetos que puedan quedar atrapados.</li><li>👂 Protección auditiva cuando el ruido de compresores, ventiladores u otros equipos lo requiera.</li></ul></div>
+      </details>
+      <details class="accordion">
+        <summary>🔎 Observaciones y criterio preventivo <span>+</span></summary>
+        <div class="accordion-content"><div class="highlight-box">La zona combina riesgos eléctricos, mecánicos, térmicos y derivados de refrigerantes y circuitos a presión. La prevención se basa en formación, comprobación previa, orden y limpieza, identificación del refrigerante y desconexión antes de mantenimiento. En equipos con refrigerantes inflamables, especialmente R-290, deben extremarse ventilación, control de fugas y eliminación de fuentes de ignición.</div></div>
+      </details>
+    </section>
+    <section class="section" id="herramientas">
+<div class="container">
+  <div class="main-panel" id="panel-herramientas">
+    <div class="section-title"><div><h2>🔧 HERRAMIENTAS</h2><p>Fichas visuales de las máquinas, equipos, herramientas y elementos identificados en el taller.</p></div></div>
+    <div class="tool-controls">
+      <input id="toolSearch" class="search" type="search" placeholder="🔎 Buscar herramienta, máquina, equipo o marca…">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="elec">⚡ Eléctricas / equipos</button>
+      <button class="filter-btn" data-filter="manual">🛠️ Manuales</button>
+    </div>
+    <div class="tools-summary"><span class="counter">⚡ 25 fichas eléctricas / equipos</span><span class="counter">🛠️ 22 fichas manuales</span></div>
+    <div class="tool-grid-wrap" id="toolsList">
+      
+    <article class="tool-card" data-tool="taladro eléctrico de mano ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/51Wba+1MqPL._AC_UF894,1000_QL80_.jpg" data-caption="Taladro eléctrico de mano">
+          <img src="https://m.media-amazon.com/images/I/51Wba+1MqPL._AC_UF894,1000_QL80_.jpg" alt="Taladro eléctrico de mano" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Taladro eléctrico de mano</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Perforaciones y determinados trabajos de montaje y mantenimiento.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Contacto eléctrico</li><li>Proyección de virutas y partículas</li><li>Rotura de brocas</li><li>Atrapamiento con el portabrocas</li><li>Golpes por pérdida de control</li><li>Enganche de ropa, pelo o elementos sueltos</li><li>Ruido y vibraciones</li><li>Sobrecalentamiento de la herramienta</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar cable, enchufe, carcasa e interruptor.</li><li>Utilizar broca adecuada y comprobar su fijación.</li><li>Sujetar firmemente la pieza.</li><li>Mantener las manos alejadas de la broca.</li><li>No cambiar la broca con el taladro conectado.</li><li>No transportar por el cable.</li><li>No utilizar con agua o humedad cuando no esté preparado para ello.</li><li>No forzar la herramienta.</li><li>Desconectar cuando no se utilice.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Calzado de seguridad</li><li>Protección auditiva cuando sea necesaria</li><li>Ropa de trabajo</li><li>Guantes únicamente cuando no exista riesgo de atrapamiento</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="radial o amoladora angular ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://bersumi.com/wp-content/uploads/2024/02/o318248v54_GWS_7-125_SOS_0601388108.jpg" data-caption="Radial o amoladora angular">
+          <img src="https://bersumi.com/wp-content/uploads/2024/02/o318248v54_GWS_7-125_SOS_0601388108.jpg" alt="Radial o amoladora angular" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Radial o amoladora angular</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Corte, desbaste y lijado de piezas metálicas y otros materiales.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes graves</li><li>Proyección de partículas</li><li>Rotura del disco</li><li>Atrapamiento</li><li>Retroceso</li><li>Chispas</li><li>Quemaduras</li><li>Ruido y vibraciones</li><li>Contacto eléctrico</li><li>Incendio por chispas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar estado y colocación del disco.</li><li>Utilizar disco adecuado.</li><li>Mantener la protección instalada.</li><li>Sujetar la pieza y la herramienta firmemente.</li><li>Mantener manos alejadas del disco.</li><li>No cambiar el disco con la herramienta conectada.</li><li>Esperar a que se detenga antes de dejarla.</li><li>Mantener alejados materiales inflamables.</li><li>No utilizar discos deteriorados.</li><li>Desconectar antes del mantenimiento.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Pantalla facial cuando exista elevada proyección</li><li>Protección auditiva</li><li>Guantes adecuados</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li><li>Protección respiratoria cuando se genere polvo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="sierra de calar ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/81C6-+RAV4L._AC_UF894,1000_QL80_.jpg" data-caption="Sierra de calar">
+          <img src="https://m.media-amazon.com/images/I/81C6-+RAV4L._AC_UF894,1000_QL80_.jpg" alt="Sierra de calar" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Sierra de calar</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Cortes sobre diferentes materiales mediante movimiento alternativo de una hoja.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Proyección de partículas</li><li>Rotura de la hoja</li><li>Contacto eléctrico</li><li>Vibraciones</li><li>Ruido</li><li>Movimiento inesperado de la pieza</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar hoja adecuada y correctamente colocada.</li><li>Sujetar la pieza.</li><li>Mantener manos alejadas de la hoja.</li><li>No cambiarla con la herramienta conectada.</li><li>No retirar protecciones.</li><li>Esperar a que la hoja se detenga.</li><li>Mantener el cable alejado de la zona de corte.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Protección auditiva cuando sea necesaria</li><li>Calzado de seguridad</li><li>Guantes adecuados</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="taladro de columna erlo tsr-25 erlo tsr-25">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Nvx35ti4VEI4he4d7t2RojzZ__6yCRQr0_HixJ58WlJbOCrdZ0CzkZk&amp;s=10" data-caption="Taladro de columna ERLO TSR-25">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Nvx35ti4VEI4he4d7t2RojzZ__6yCRQr0_HixJ58WlJbOCrdZ0CzkZk&amp;s=10" alt="Taladro de columna ERLO TSR-25" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Taladro de columna ERLO TSR-25</h4><span class="tag">ERLO TSR-25</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Perforaciones estables y precisas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Atrapamiento con husillo o portabrocas</li><li>Proyección de virutas</li><li>Rotura de broca</li><li>Cortes</li><li>Contacto eléctrico</li><li>Ruido y vibraciones</li><li>Movimiento de la pieza</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Sujetar la pieza mediante el sistema adecuado.</li><li>Utilizar broca y velocidad adecuadas.</li><li>No sujetar la pieza con las manos durante la perforación.</li><li>Mantener manos alejadas del portabrocas.</li><li>No retirar virutas con las manos.</li><li>No ajustar con la máquina funcionando.</li><li>Mantener protecciones colocadas.</li><li>Desconectar para mantenimiento o limpieza.</li><li>Pelo recogido y evitar ropa holgada, pulseras o cadenas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Calzado de seguridad</li><li>Protección auditiva cuando corresponda</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="taladro de columna dpyy-500 dpyy-500">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://cdn.wallapop.com/images/10420/l4/gq/__/c10420p1277289601/i6587816922.jpg?pictureSize=W800" data-caption="Taladro de columna DPYY-500">
+          <img src="https://cdn.wallapop.com/images/10420/l4/gq/__/c10420p1277289601/i6587816922.jpg?pictureSize=W800" alt="Taladro de columna DPYY-500" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Taladro de columna DPYY-500</h4><span class="tag">DPYY-500</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Perforaciones sobre diferentes piezas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Atrapamiento</li><li>Proyección de virutas</li><li>Rotura de brocas</li><li>Cortes</li><li>Contacto eléctrico</li><li>Ruido y vibraciones</li><li>Desplazamiento de la pieza</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Revisar la máquina antes de utilizarla.</li><li>Utilizar broca adecuada.</li><li>Sujetar correctamente la pieza.</li><li>Mantener manos alejadas de la zona de perforación.</li><li>No retirar virutas con las manos.</li><li>No cambiar la broca con la máquina conectada.</li><li>Mantener protecciones colocadas.</li><li>Desconectar antes del mantenimiento.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Calzado de seguridad</li><li>Protección auditiva cuando sea necesaria</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="esmeriladora letag e200 letag e200">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://media.adeo.com/mkp/7eabf3f926d1b291c51b77c379bd65ad/media.png?width=650&amp;height=650&amp;format=jpg&amp;quality=80&amp;fit=bounds" data-caption="Esmeriladora LETAG E200">
+          <img src="https://media.adeo.com/mkp/7eabf3f926d1b291c51b77c379bd65ad/media.png?width=650&amp;height=650&amp;format=jpg&amp;quality=80&amp;fit=bounds" alt="Esmeriladora LETAG E200" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Esmeriladora LETAG E200</h4><span class="tag">LETAG E200</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Desbaste, afilado y acabado de piezas metálicas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Proyección de partículas</li><li>Rotura de la muela</li><li>Cortes y abrasiones</li><li>Quemaduras</li><li>Chispas e incendio</li><li>Ruido</li><li>Contacto eléctrico</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Revisar estado de la muela.</li><li>Mantener protecciones colocadas.</li><li>No usar muelas deterioradas.</li><li>No ejercer presión excesiva.</li><li>Mantener alejados materiales inflamables.</li><li>No tocar piezas inmediatamente después.</li><li>Desconectar antes del mantenimiento.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Pantalla facial cuando proceda</li><li>Protección auditiva</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li><li>Guantes cuando sean compatibles</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="sierra de cinta femi femi">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/81aocL0AO1L.jpg" data-caption="Sierra de cinta FEMI">
+          <img src="https://m.media-amazon.com/images/I/81aocL0AO1L.jpg" alt="Sierra de cinta FEMI" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Sierra de cinta FEMI</h4><span class="tag">FEMI</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Cortes sobre diferentes materiales.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Atrapamiento de manos</li><li>Proyección de partículas</li><li>Rotura de cinta</li><li>Contacto eléctrico</li><li>Ruido y vibraciones</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar estado y tensión de la cinta.</li><li>Utilizar hoja adecuada.</li><li>Mantener protecciones.</li><li>Mantener manos alejadas de corte.</li><li>No ajustar con cinta en movimiento.</li><li>Sujetar correctamente la pieza.</li><li>Desconectar antes de cambiar cinta o mantener.</li><li>Retirar restos con cepillo u otro sistema adecuado, nunca con las manos.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Protección auditiva</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="sierra o tronzadora dewalt dewalt">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/71a4zXguo9L.jpg" data-caption="Sierra o tronzadora DEWALT">
+          <img src="https://m.media-amazon.com/images/I/71a4zXguo9L.jpg" alt="Sierra o tronzadora DEWALT" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Sierra o tronzadora DEWALT</h4><span class="tag">DEWALT</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Cortes sobre perfiles y diferentes piezas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Proyección de partículas</li><li>Rotura del disco</li><li>Atrapamiento</li><li>Retroceso de la pieza</li><li>Chispas</li><li>Quemaduras</li><li>Ruido</li><li>Contacto eléctrico</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar disco y utilizar el apropiado.</li><li>Sujetar correctamente la pieza.</li><li>Mantener manos alejadas.</li><li>No retirar protección.</li><li>Esperar a parada completa.</li><li>No cambiar disco con equipo conectado.</li><li>Mantener alejados materiales inflamables.</li><li>Desconectar antes del mantenimiento.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Pantalla facial cuando sea necesaria</li><li>Protección auditiva</li><li>Guantes adecuados</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="compresor de aire cevik pro ca-pro25 cevik pro ca-pro25">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.dateriumsystem.com/appfiles/clientes/338/catalogo/500x500/ca-pro25.jpg" data-caption="Compresor de aire CEVIK PRO CA-PRO25">
+          <img src="https://www.dateriumsystem.com/appfiles/clientes/338/catalogo/500x500/ca-pro25.jpg" alt="Compresor de aire CEVIK PRO CA-PRO25" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Compresor de aire CEVIK PRO CA-PRO25</h4><span class="tag">CEVIK PRO CA-PRO25</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Equipo de aire comprimido identificado en la zona de mecanizado.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Ruido</li><li>Contacto eléctrico</li><li>Proyección de partículas o aire a presión</li><li>Golpes</li><li>Incendio por fallo eléctrico o sobrecalentamiento</li><li>Riesgos asociados a la presión</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar estado antes de usar.</li><li>Mantener conexiones eléctricas en buen estado.</li><li>No dirigir aire comprimido hacia personas.</li><li>Usar accesorios adecuados.</li><li>Mantener despejada la zona.</li><li>Mantenimiento según fabricante.</li><li>Despresurizar cuando proceda.</li><li>Protección auditiva cuando sea necesaria.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Protección auditiva cuando sea necesaria</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="equipos de soldadura eléctrica s-welding · cycle 60.20 ge · lincoln electric">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.soldaelectric.com/img/cms/soldadura-bester-190cMULTI.jpg" data-caption="Equipos de soldadura eléctrica">
+          <img src="https://www.soldaelectric.com/img/cms/soldadura-bester-190cMULTI.jpg" alt="Equipos de soldadura eléctrica" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Equipos de soldadura eléctrica</h4><span class="tag">S-WELDING · CYCLE 60.20 GE · Lincoln Electric</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Equipos para soldadura mediante arco eléctrico.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Contacto eléctrico directo o indirecto</li><li>Quemaduras</li><li>Radiaciones UV e IR</li><li>Proyección de partículas incandescentes</li><li>Humos y gases</li><li>Incendio</li><li>Sobrecalentamiento de cables, conexiones o componentes</li><li>Daños por uso incorrecto</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar estado antes de trabajar.</li><li>Revisar cables, conexiones, aislamiento, porta-electrodos y pinza de masa.</li><li>Mantener correcta conexión a tierra.</li><li>No utilizar elementos deteriorados.</li><li>Evitar contacto de cables con calor, agua, bordes o aplastamientos.</li><li>Alejar equipos de combustibles.</li><li>Desconectar para mantenimiento, limpieza o sustitución.</li><li>No trabajar con manos, guantes o ropa húmedos.</li><li>No dejar conectados equipos que no se estén utilizando.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Pantalla/máscara de soldadura</li><li>Guantes de soldadura</li><li>Protección para ropa</li><li>Protección ocular</li><li>Calzado de seguridad</li><li>Protección respiratoria cuando corresponda</li><li>Protección auditiva cuando corresponda</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="cámaras frigoríficas ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://elhostelero.com/11788-large_default/camara-frigorifica-coreco-panel-80mm-medida-exterior-214-x-214-metros.jpg" data-caption="Cámaras frigoríficas">
+          <img src="https://elhostelero.com/11788-large_default/camara-frigorifica-coreco-panel-80mm-medida-exterior-214-x-214-metros.jpg" alt="Cámaras frigoríficas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Cámaras frigoríficas</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Prácticas de conservación y funcionamiento de instalaciones de refrigeración.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Acceso al interior</li><li>Bajas temperaturas</li><li>Contacto con superficies frías</li><li>Elementos eléctricos</li><li>Funcionamiento automático de componentes</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar estado antes de la práctica.</li><li>Mantener accesos libres.</li><li>Comprobar sistemas de apertura y seguridad.</li><li>Desconectar antes de intervenir en componentes eléctricos o mecánicos.</li><li>Evitar puesta en marcha accidental.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Protección frente al frío cuando corresponda</li><li>Gafas de seguridad cuando exista riesgo de proyección</li><li>Guantes adecuados cuando la tarea lo requiera</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="equipos de aire acondicionado tipo split ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.caloryfrio.com/images/articulos/aire-domestico/aire-acondicionado-split.webp" data-caption="Equipos de aire acondicionado tipo split">
+          <img src="https://www.caloryfrio.com/images/articulos/aire-domestico/aire-acondicionado-split.webp" alt="Equipos de aire acondicionado tipo split" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Equipos de aire acondicionado tipo split</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Prácticas de identificación, ciclo frigorífico, temperaturas y presiones, mantenimiento y diagnóstico.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Contacto eléctrico</li><li>Atrapamiento con ventiladores</li><li>Partes calientes</li><li>Presión del refrigerante</li><li>Posible fuga de refrigerante</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Intervenir con el equipo en condiciones seguras y desconectado cuando corresponda.</li><li>No introducir manos en zonas móviles.</li><li>Comprobar condiciones del circuito y conexiones antes de intervenir.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad cuando corresponda</li><li>Guantes adecuados según tarea</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="bancos didácticos de refrigeración y climatización ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9J5EjN901YA9dZxsWx7zm5jK-usg_mrJH2IbLTmB06iSa0mKhR8vmwG95&amp;s=10" data-caption="Bancos didácticos de refrigeración y climatización">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9J5EjN901YA9dZxsWx7zm5jK-usg_mrJH2IbLTmB06iSa0mKhR8vmwG95&amp;s=10" alt="Bancos didácticos de refrigeración y climatización" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Bancos didácticos de refrigeración y climatización</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Estructuras y paneles para observar y manipular componentes del circuito frigorífico y sistemas de regulación y control.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Componentes móviles accesibles</li><li>Conexiones eléctricas accesibles</li><li>Tuberías accesibles</li><li>Riesgos durante intervención en equipos abiertos</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Realizar intervenciones con el equipo parado.</li><li>Seguir las instrucciones correspondientes.</li><li>Comprobar previamente estado del banco y sus elementos.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>EPI de la zona según tarea</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="unidades frigoríficas y equipos de refrigeración intarcon identificado en la zona">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.froztec.com/hs-fs/hubfs/Condensadorhih0.png?width=420&amp;name=Condensadorhih0.png" data-caption="Unidades frigoríficas y equipos de refrigeración">
+          <img src="https://www.froztec.com/hs-fs/hubfs/Condensadorhih0.png?width=420&amp;name=Condensadorhih0.png" alt="Unidades frigoríficas y equipos de refrigeración" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Unidades frigoríficas y equipos de refrigeración</h4><span class="tag">INTARCON identificado en la zona</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Puesta en marcha, comprobación de parámetros, mantenimiento preventivo, detección de averías y regulación.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Riesgos eléctricos</li><li>Componentes del circuito frigorífico</li><li>Presión y refrigerante</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar parámetros y condiciones seguras antes de intervenir.</li><li>Desconectar cuando corresponda.</li><li>Seguir instrucciones del fabricante.</li><li>Comunicar anomalías.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>EPI de la zona según tarea</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="compresores frigoríficos ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://fersay.b-cdn.net/download/bancorecursos/Fersay/productos/32000401.jpg?m=20221020120938" data-caption="Compresores frigoríficos">
+          <img src="https://fersay.b-cdn.net/download/bancorecursos/Fersay/productos/32000401.jpg?m=20221020120938" alt="Compresores frigoríficos" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Compresores frigoríficos</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Elementos principales de las instalaciones frigoríficas presentes en bancos de prácticas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Presión del refrigerante</li><li>Ruido</li><li>Vibraciones</li><li>Temperaturas elevadas</li><li>Riesgos eléctricos y frigoríficos</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar que el circuito está en condiciones seguras.</li><li>Evitar tocar partes calientes inmediatamente después del funcionamiento.</li><li>Comprobar conexiones eléctricas y frigoríficas antes de operar.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes adecuados cuando corresponda</li><li>Calzado de seguridad</li><li>Protección auditiva cuando sea necesaria</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="condensadores, evaporadores e intercambiadores de calor ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.vacca.es/wp-content/uploads/2025/02/funcion_del_condensador_en_un_sistema_de_refrigeracion-1200x900.jpg" data-caption="Condensadores, evaporadores e intercambiadores de calor">
+          <img src="https://www.vacca.es/wp-content/uploads/2025/02/funcion_del_condensador_en_un_sistema_de_refrigeracion-1200x900.jpg" alt="Condensadores, evaporadores e intercambiadores de calor" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Condensadores, evaporadores e intercambiadores de calor</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Componentes visibles en bancos de prácticas para estudiar el circuito y la transmisión de calor.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Superficies calientes o frías</li><li>Cortes con aletas metálicas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Evitar manipular aletas directamente con las manos.</li><li>Utilizar equipos de protección correspondientes.</li><li>Esperar condiciones seguras antes de manipular superficies térmicas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes adecuados</li><li>Calzado de seguridad</li><li>Gafas cuando exista riesgo de proyección</li></ul></div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="tool-card" data-tool="cuadros eléctricos y cuadros de control intarcon identificado en algunos cuadros">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.topcable.com/blog-electric-cable/wp-content/uploads/2025/03/captura-de-pantalla-2025-03-12-a-las-123222.jpg" data-caption="Cuadros eléctricos y cuadros de control">
+          <img src="https://www.topcable.com/blog-electric-cable/wp-content/uploads/2025/03/captura-de-pantalla-2025-03-12-a-las-123222.jpg" alt="Cuadros eléctricos y cuadros de control" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Cuadros eléctricos y cuadros de control</h4><span class="tag">INTARCON identificado en algunos cuadros</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Control del funcionamiento de equipos frigoríficos y prácticas de regulación y diagnóstico.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Contacto eléctrico</li><li>Puesta en marcha accidental</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Acceso interior reservado a operaciones autorizadas y personal formado.</li><li>Desconectar alimentación antes de manipular componentes.</li><li>Comprobar ausencia de tensión cuando corresponda.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Protección adecuada para el trabajo eléctrico según las condiciones indicadas para el trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="centralitas electrónicas y sistemas de regulación ako ako">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQknbx1S8y0ghGGhLAU31j7KO1_rlf5C8vnOSGNhQcWVYultJp9pjYhbZp&amp;s=10" data-caption="Centralitas electrónicas y sistemas de regulación AKO">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQknbx1S8y0ghGGhLAU31j7KO1_rlf5C8vnOSGNhQcWVYultJp9pjYhbZp&amp;s=10" alt="Centralitas electrónicas y sistemas de regulación AKO" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Centralitas electrónicas y sistemas de regulación AKO</h4><span class="tag">AKO</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Supervisión y regulación de parámetros, especialmente temperatura y funcionamiento.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Manipulación incorrecta</li><li>Golpes</li><li>Humedad</li><li>Configuración incorrecta</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>No modificar parámetros sin conocer su función.</li><li>Proteger frente a golpes y humedad.</li><li>Seguir las condiciones de funcionamiento correspondientes.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>EPI de la zona según tarea</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="sistemas de control intarcon intarcon">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.intarcon.com/wp-content/uploads/2022/02/central-refrigeracion-hfc-intarcube-inverter.webp" data-caption="Sistemas de control INTARCON">
+          <img src="https://www.intarcon.com/wp-content/uploads/2022/02/central-refrigeracion-hfc-intarcube-inverter.webp" alt="Sistemas de control INTARCON" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Sistemas de control INTARCON</h4><span class="tag">INTARCON</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Control de parámetros y gestión del funcionamiento de instalaciones frigoríficas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Contacto eléctrico</li><li>Intervención incorrecta sobre elementos de corte/aislamiento</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Realizar intervenciones con el equipo desconectado cuando sea necesario.</li><li>Prestar atención a interruptores y elementos eléctricos.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>EPI de la zona según tarea</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="manómetros y conjuntos de medida ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://cdn.manomano.com/pim-media/images/medium/b47df21fadd9b4c62a7864e6c819ee17246c978c.jpg" data-caption="Manómetros y conjuntos de medida">
+          <img src="https://cdn.manomano.com/pim-media/images/medium/b47df21fadd9b4c62a7864e6c819ee17246c978c.jpg" alt="Manómetros y conjuntos de medida" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Manómetros y conjuntos de medida</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Medición de presiones durante diagnóstico y mantenimiento.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Presión</li><li>Desconexión incorrecta</li><li>Daños en conexiones</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar mangueras, conexiones y racores.</li><li>No manipular conexiones sometidas a presión de forma incorrecta.</li><li>Comprobar condiciones del circuito.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="mangueras y conexiones frigoríficas ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://storage.tameson.com/asset/Articles/general/copper-pipe-compression-fittings.jpg" data-caption="Mangueras y conexiones frigoríficas">
+          <img src="https://storage.tameson.com/asset/Articles/general/copper-pipe-compression-fittings.jpg" alt="Mangueras y conexiones frigoríficas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Mangueras y conexiones frigoríficas</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Conexión de componentes y realización de mediciones o intervenciones.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Presión peligrosa</li><li>Deterioro o rotura de mangueras</li><li>Fugas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Conocer estado del circuito antes de desmontar.</li><li>Comprobar ausencia de presión peligrosa.</li><li>Mantener mangueras en buen estado y sustituirlas si presentan grietas o daños.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="botellas y recipientes ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.fanairsl.com/wp-content/uploads/2019/01/gas_1.jpg" data-caption="Botellas y recipientes">
+          <img src="https://www.fanairsl.com/wp-content/uploads/2019/01/gas_1.jpg" alt="Botellas y recipientes" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Botellas y recipientes</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Utilizados en las prácticas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Caídas</li><li>Golpes</li><li>Exposición a fuentes de calor</li><li>Identificación incorrecta del contenido</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>No asumir contenido por el color.</li><li>Mantener cada recipiente correctamente identificado.</li><li>Almacenar de forma estable y evitar golpes y fuentes de calor.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Calzado de seguridad</li><li>Guantes adecuados según manipulación</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="equipos con refrigerante r-290 r-290 (propano)">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://gas-servei.com/wp-content/uploads/2024/02/R-290.png" data-caption="Equipos con refrigerante R-290">
+          <img src="https://gas-servei.com/wp-content/uploads/2024/02/R-290.png" alt="Equipos con refrigerante R-290" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Equipos con refrigerante R-290</h4><span class="tag">R-290 (propano)</span></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Equipo identificado con refrigerante R-290, clasificado A3 y de alta inflamabilidad.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Inflamabilidad</li><li>Fugas</li><li>Fuentes de ignición</li><li>Riesgos derivados de refrigerante</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Identificar refrigerante y carga antes de intervenir.</li><li>Garantizar ventilación adecuada.</li><li>Controlar posibles fugas.</li><li>Evitar fuentes de ignición.</li><li>Aplicar las condiciones específicas de seguridad indicadas para el refrigerante.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li><li>Protección respiratoria cuando la evaluación lo determine</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="radiadores y elementos terminales ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://blog.bauhaus.es/wp-content/uploads/2023/12/tipos-de-radiadores-01.jpg" data-caption="Radiadores y elementos terminales">
+          <img src="https://blog.bauhaus.es/wp-content/uploads/2023/12/tipos-de-radiadores-01.jpg" alt="Radiadores y elementos terminales" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Radiadores y elementos terminales</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Elementos didácticos para estudiar transmisión de calor y aplicaciones de instalaciones térmicas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Superficies calientes</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Evitar contacto directo con superficies calientes.</li><li>Esperar a condiciones seguras antes de manipular.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes adecuados cuando corresponda</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="tuberías y accesorios de las instalaciones ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.onatermia.com/img/cms/accesorios%20AC/linea-frigorifica-metro-lineal-a32186.jpg" data-caption="Tuberías y accesorios de las instalaciones">
+          <img src="https://www.onatermia.com/img/cms/accesorios%20AC/linea-frigorifica-metro-lineal-a32186.jpg" alt="Tuberías y accesorios de las instalaciones" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Tuberías y accesorios de las instalaciones</h4></div><span class="kind-badge">⚡ Eléctrica/equipo</span></div>
+        <p class="tool-desc">Tuberías de cobre, aisladas, accesorios, conexiones y elementos auxiliares de instalaciones frigoríficas y de climatización.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Golpes</li><li>Enganches</li><li>Tropiezos</li><li>Deterioro del aislamiento y condensaciones</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Mantener tuberías correctamente sujetas y protegidas.</li><li>Mantener el aislamiento en buen estado.</li><li>Evitar elementos sueltos en zonas de paso.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+      
+    <article class="tool-card" data-tool="electrodos de soldadura gala 46 e gala 46 e">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://galagar.com/wp-content/uploads/2022/01/Electrodos-Paquete.jpg" data-caption="Electrodos de soldadura GALA 46 E">
+          <img src="https://galagar.com/wp-content/uploads/2022/01/Electrodos-Paquete.jpg" alt="Electrodos de soldadura GALA 46 E" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Electrodos de soldadura GALA 46 E</h4><span class="tag">GALA 46 E</span></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Material de aporte para soldadura eléctrica.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Quemaduras</li><li>Proyección de partículas</li><li>Humos durante soldadura</li><li>Contacto eléctrico al manipular con equipo conectado</li><li>Deterioro o contaminación por almacenamiento inadecuado</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Almacenar ordenadamente.</li><li>Evitar humedad y contaminación.</li><li>Utilizar el electrodo adecuado.</li><li>No sustituir con el equipo conectado.</li><li>No manipular con manos desnudas cuando exista riesgo de contacto eléctrico.</li><li>No utilizar electrodos deteriorados.</li><li>Mantener cajas correctamente almacenadas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes de soldadura</li><li>Protección ocular</li><li>Protección para ropa</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="pantallas y máscaras de soldadura ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://arcashop.es/2525-large_default/pantalla-soldadura-careta-soldador-soldar-climax-comprar.jpg" data-caption="Pantallas y máscaras de soldadura">
+          <img src="https://arcashop.es/2525-large_default/pantalla-soldadura-careta-soldador-soldar-climax-comprar.jpg" alt="Pantallas y máscaras de soldadura" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Pantallas y máscaras de soldadura</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Protección frente a radiación del arco y proyecciones.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Radiaciones UV e IR</li><li>Luz intensa</li><li>Proyección de partículas</li><li>Chispas y material incandescente</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar siempre la adecuada.</li><li>Comprobar buen estado.</li><li>Mantener visor limpio.</li><li>Usar filtro adecuado.</li><li>No soldar si hay personas próximas sin protección visual.</li><li>Mantener pantallas colectivas colocadas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Pantalla o máscara de soldadura</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="guantes de protección para soldadura ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://files.plytix.com/api/v1.1/file/public_files/pim/assets/fc/a9/4b/65/654ba9fc98950800014a2d58/images/21/4f/53/65/65534f2193bceaebf3feda61/788_MR.jpg" data-caption="Guantes de protección para soldadura">
+          <img src="https://files.plytix.com/api/v1.1/file/public_files/pim/assets/fc/a9/4b/65/654ba9fc98950800014a2d58/images/21/4f/53/65/65534f2193bceaebf3feda61/788_MR.jpg" alt="Guantes de protección para soldadura" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Guantes de protección para soldadura</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Protección de manos frente a calor, proyecciones y contacto con piezas metálicas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Calor</li><li>Proyecciones</li><li>Contacto con piezas metálicas</li><li>Pérdida de propiedades protectoras</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar guantes adecuados.</li><li>Comprobar ausencia de agujeros, cortes o deterioros.</li><li>Mantenerlos secos.</li><li>No utilizarlos como protección eléctrica si no están diseñados para ello.</li><li>Sustituirlos cuando pierdan propiedades.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes de soldadura</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="protectores para la ropa ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.vestuariolaboral.com/29865/delantal-de-cuero-para-soldadura-portwest-mod-sw10.jpg" data-caption="Protectores para la ropa">
+          <img src="https://www.vestuariolaboral.com/29865/delantal-de-cuero-para-soldadura-portwest-mod-sw10.jpg" alt="Protectores para la ropa" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Protectores para la ropa</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Mandiles o protectores de cuero frente a chispas, partículas incandescentes y calor.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Chispas</li><li>Partículas incandescentes</li><li>Calor</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizarlos especialmente cuando exista elevada generación de proyecciones.</li><li>Mantenerlos en condiciones adecuadas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Mandil/protector de cuero</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="cepillos de limpieza ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.cofan.es/images/content/1024x682/web1_09514073_01.jpg" data-caption="Cepillos de limpieza">
+          <img src="https://www.cofan.es/images/content/1024x682/web1_09514073_01.jpg" alt="Cepillos de limpieza" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Cepillos de limpieza</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Limpieza de piezas y retirada de escoria y residuos tras soldadura.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Proyección de pequeñas partículas</li><li>Cortes o pinchazos por restos metálicos</li><li>Contacto con piezas calientes</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar el cepillo adecuado.</li><li>Comprobar buen estado.</li><li>Usar protección ocular si hay proyección.</li><li>No limpiar piezas calientes directamente con las manos.</li><li>Almacenar ordenadamente.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Protección térmica según tarea</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="gatos de sujeción ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.teminsa.com/img/uploads/2016/12/gato-hierro.jpg" data-caption="Gatos de sujeción">
+          <img src="https://www.teminsa.com/img/uploads/2016/12/gato-hierro.jpg" alt="Gatos de sujeción" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Gatos de sujeción</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Inmovilización y sujeción de piezas durante trabajos de soldadura.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Golpes y atrapamientos</li><li>Caída de piezas</li><li>Sobreesfuerzos</li><li>Cortes por piezas metálicas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Usar gato adecuado al tamaño y peso.</li><li>Comprobar correcta colocación antes de soldar.</li><li>Evitar sobrecargar.</li><li>Mantener en buen estado.</li><li>Retirar deformados o dañados.</li><li>Almacenar establemente.</li><li>Utilizar guantes adecuados.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="mesas y bancos de soldadura ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://euroweld.es/wp-content/uploads/2021/11/mesa.jpg" data-caption="Mesas y bancos de soldadura">
+          <img src="https://euroweld.es/wp-content/uploads/2021/11/mesa.jpg" alt="Mesas y bancos de soldadura" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Mesas y bancos de soldadura</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Preparación, colocación, sujeción y soldadura de piezas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Inestabilidad</li><li>Residuos</li><li>Incendio por combustibles</li><li>Desorden de herramientas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Mantener superficies limpias y despejadas.</li><li>Retirar escoria y material.</li><li>Comprobar estabilidad.</li><li>No colocar combustibles.</li><li>Utilizar gatos u otros sistemas cuando sea necesario.</li><li>Evitar almacenar herramientas y materiales desordenadamente.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Calzado de seguridad</li><li>Guantes adecuados</li><li>Protección ocular cuando exista proyección</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="armarios y sistemas de almacenamiento ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://cdn3.tekipeo.es/7719-thickbox_default/taquilla-de-mantenimiento-190-x-90-x-47-cm.webp" data-caption="Armarios y sistemas de almacenamiento">
+          <img src="https://cdn3.tekipeo.es/7719-thickbox_default/taquilla-de-mantenimiento-190-x-90-x-47-cm.webp" alt="Armarios y sistemas de almacenamiento" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Armarios y sistemas de almacenamiento</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Almacenamiento de EPI, herramientas, consumibles y materiales de soldadura.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Caída de objetos</li><li>Sobrecarga</li><li>Materiales sobresalientes</li><li>Dificultad de acceso a EPI</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Mantener materiales clasificados.</li><li>Pesados abajo.</li><li>No sobrecargar baldas.</li><li>Evitar sobresalientes.</li><li>Mantener cerrados cuando corresponda.</li><li>Retirar deteriorados o innecesarios.</li><li>Facilitar acceso a EPI.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>—</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="martillos y mazas ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://media.adeo.com/media/4892535/media.jpeg" data-caption="Martillos y mazas">
+          <img src="https://media.adeo.com/media/4892535/media.jpeg" alt="Martillos y mazas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Martillos y mazas</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Golpear, ajustar, desmontar o colocar componentes.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Golpes en manos y dedos</li><li>Proyección de fragmentos</li><li>Rotura de cabeza o mango</li><li>Golpes sobre piezas mal sujetas</li><li>Ruido</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar mango fijado.</li><li>No usar deteriorados.</li><li>Usar tipo adecuado.</li><li>Sujetar pieza.</li><li>No usarlos como palancas.</li><li>Alejar a otras personas de la zona de golpeo.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Calzado de seguridad</li><li>Guantes adecuados</li><li>Protección auditiva cuando sea necesaria</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="destornilladores ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/71gR1orxa8L.jpg" data-caption="Destornilladores">
+          <img src="https://m.media-amazon.com/images/I/71gR1orxa8L.jpg" alt="Destornilladores" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Destornilladores</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Montaje y desmontaje de tornillos en máquinas, cuadros, climatización y otros elementos.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes y pinchazos</li><li>Deslizamiento de punta</li><li>Golpes</li><li>Daños en tornillo o herramienta</li><li>Contacto eléctrico en instalaciones eléctricas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar tipo y tamaño adecuado.</li><li>No usar como palanca o punzón.</li><li>Mantener punta en buen estado.</li><li>Sujetar correctamente la pieza.</li><li>En trabajos eléctricos, usar herramientas específicamente aisladas y aplicar las medidas de seguridad.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="llaves fijas, combinadas, de estrella e inglesa ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/51HC1SKmMKL._AC_UF894,1000_QL80_.jpg" data-caption="Llaves fijas, combinadas, de estrella e inglesa">
+          <img src="https://m.media-amazon.com/images/I/51HC1SKmMKL._AC_UF894,1000_QL80_.jpg" alt="Llaves fijas, combinadas, de estrella e inglesa" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Llaves fijas, combinadas, de estrella e inglesa</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Apretar y aflojar tuercas, tornillos y conexiones.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Golpes en manos</li><li>Deslizamiento</li><li>Pellizcos</li><li>Sobreesfuerzos</li><li>Daños en tuercas o tornillos</li><li>Rotura</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar medida adecuada.</li><li>Ajustar correctamente llaves inglesas.</li><li>Asentar completamente sobre la tuerca.</li><li>No usar deterioradas o deformadas.</li><li>No usar como martillo o palanca.</li><li>No usar prolongaciones improvisadas.</li><li>Aplicar fuerza controlada.</li><li>Alejar manos de puntos de pellizco.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes de protección</li><li>Calzado de seguridad</li><li>Gafas cuando exista riesgo de proyección</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="alicates ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.sernesashop.com/images/product/imagenes/3301155.JPG" data-caption="Alicates">
+          <img src="https://www.sernesashop.com/images/product/imagenes/3301155.JPG" alt="Alicates" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Alicates</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Incluye universales, de punta, de corte y de presión.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Pellizcos</li><li>Proyección de fragmentos al cortar</li><li>Sobreesfuerzo</li><li>Contacto eléctrico con herramienta inadecuada</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Usar cada tipo para su función.</li><li>No utilizarlos como martillo.</li><li>Comprobar mordazas y mangos.</li><li>Mantener manos alejadas de corte.</li><li>Utilizar alicates aislados cuando el trabajo eléctrico lo requiera.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="cortatubos ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://media.bricovia.com/product/cortatubos-rothenberger-6-42-mm-800x800.jpg?width=1200" data-caption="Cortatubos">
+          <img src="https://media.bricovia.com/product/cortatubos-rothenberger-6-42-mm-800x800.jpg?width=1200" alt="Cortatubos" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Cortatubos</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Corte de tuberías de cobre.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Atrapamiento de dedos</li><li>Bordes cortantes</li><li>Proyección de pequeñas partículas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar adecuado al diámetro.</li><li>Sujetar correctamente la tubería.</li><li>Realizar corte progresivamente.</li><li>Eliminar o proteger bordes cortantes después.</li><li>Mantener herramienta en buen estado.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes de protección</li><li>Gafas de seguridad</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="escariador ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmC-6_VpPJ_jzY2IDQAJz2SJtQ-ZmAszJT8rkuAAiBiQ&amp;s=10" data-caption="Escariador">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmC-6_VpPJ_jzY2IDQAJz2SJtQ-ZmAszJT8rkuAAiBiQ&amp;s=10" alt="Escariador" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Escariador</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Eliminación de rebabas interiores y exteriores después del corte de tuberías.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Proyección de pequeñas virutas</li><li>Pinchazos</li><li>Contacto con bordes afilados</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Sujetar tubería.</li><li>Escariar de forma controlada.</li><li>No tocar directamente zonas recién cortadas.</li><li>Mantener herramienta protegida cuando no se utilice.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="abocardador y herramientas de conformado de tubería ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWrLhP4jlypGIQgfdzAKXQKk_N1qS8gnLE3FLSDystRg&amp;s=10" data-caption="Abocardador y herramientas de conformado de tubería">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWrLhP4jlypGIQgfdzAKXQKk_N1qS8gnLE3FLSDystRg&amp;s=10" alt="Abocardador y herramientas de conformado de tubería" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Abocardador y herramientas de conformado de tubería</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Abocardados y preparación de conexiones en tuberías frigoríficas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Pellizcos</li><li>Cortes</li><li>Golpes</li><li>Rotura de tubería</li><li>Sobreesfuerzos</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar herramienta adecuada al diámetro.</li><li>Sujetar correctamente la tubería.</li><li>Comprobar cono y mordazas.</li><li>No aplicar fuerza excesiva.</li><li>Comprobar el abocardado antes de conectar.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes de protección</li><li>Gafas de seguridad</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="sierra manual para metales ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://arcashop.es/8102-large_default/arco-sierra-y-hoja-segueta-sierra-corte-metal-super-ego.jpg" data-caption="Sierra manual para metales">
+          <img src="https://arcashop.es/8102-large_default/arco-sierra-y-hoja-segueta-sierra-corte-metal-super-ego.jpg" alt="Sierra manual para metales" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Sierra manual para metales</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Corte manual de pequeños perfiles, tubos y piezas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Rotura de hoja</li><li>Proyección de fragmentos</li><li>Pellizcos</li><li>Sobreesfuerzo</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar hoja adecuada.</li><li>Comprobar colocación y tensión.</li><li>Sujetar pieza en tornillo de banco.</li><li>Realizar movimientos controlados.</li><li>No ejercer fuerza excesiva.</li><li>Sustituir hojas deterioradas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="limas ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://m.media-amazon.com/images/I/71mGV3zMs9L.jpg" data-caption="Limas">
+          <img src="https://m.media-amazon.com/images/I/71mGV3zMs9L.jpg" alt="Limas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Limas</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Eliminar material, rebabas y conseguir acabados.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes</li><li>Pinchazos</li><li>Proyección de partículas</li><li>Rotura del mango</li><li>Sobreesfuerzo</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar lima adecuada.</li><li>Comprobar mango correctamente colocado.</li><li>Sujetar pieza en tornillo de banco.</li><li>No utilizar limas sin mango.</li><li>Limpiar con medios adecuados.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes cuando sean compatibles</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="tijeras para chapa ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://www.herrajesandalucia.com/4560646-large_default/tijera-corta-chapa-57753.jpg" data-caption="Tijeras para chapa">
+          <img src="https://www.herrajesandalucia.com/4560646-large_default/tijera-corta-chapa-57753.jpg" alt="Tijeras para chapa" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Tijeras para chapa</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Corte de pequeñas piezas o chapas metálicas.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes en manos</li><li>Bordes afilados</li><li>Pellizcos</li><li>Proyección de pequeñas partículas</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar adecuadas al espesor y tipo.</li><li>Mantener manos alejadas.</li><li>No usar deterioradas.</li><li>Transportarlas cerradas o protegidas.</li><li>Manipular chapa con precaución.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes anticorte adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="cúter ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://tuberiasdelsur.com/wp-content/uploads/2022/04/CUTER.jpg" data-caption="Cúter">
+          <img src="https://tuberiasdelsur.com/wp-content/uploads/2022/04/CUTER.jpg" alt="Cúter" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Cúter</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Corte de aislantes, embalajes, materiales de protección y otros elementos auxiliares.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Cortes profundos</li><li>Deslizamiento de hoja</li><li>Rotura de cuchilla</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar superficie estable.</li><li>Cortar alejando del cuerpo.</li><li>No dejar hoja abierta.</li><li>Sustituir cuchillas deterioradas.</li><li>No transportar con hoja abierta.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Guantes anticorte cuando sean compatibles</li><li>Gafas si existe riesgo de proyección</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="tornillo de banco acesa">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://media.esutil.es/product/tornillo-de-banco-de-guia-redonda-800x800_quElxlY.jpg?width=1200" data-caption="Tornillo de banco">
+          <img src="https://media.esutil.es/product/tornillo-de-banco-de-guia-redonda-800x800_quElxlY.jpg?width=1200" alt="Tornillo de banco" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Tornillo de banco</h4><span class="tag">ACESA</span></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Sujeción firme de piezas durante corte, limado, taladrado o ajuste.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Pellizcos o atrapamientos</li><li>Golpes</li><li>Caída de pieza</li><li>Proyección de fragmentos si la pieza se rompe</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar fijación al banco.</li><li>Sujetar pieza firmemente.</li><li>No usar para trabajos no diseñados.</li><li>No golpear excesivamente mordazas.</li><li>Mantener limpias las superficies de sujeción.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes cuando sean adecuados</li><li>Calzado de seguridad</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="manómetros y herramientas de medida frigorífica ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://maquinas-maquinas.com/wp-content/uploads/2025/03/manometro-1.jpg" data-caption="Manómetros y herramientas de medida frigorífica">
+          <img src="https://maquinas-maquinas.com/wp-content/uploads/2025/03/manometro-1.jpg" alt="Manómetros y herramientas de medida frigorífica" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Manómetros y herramientas de medida frigorífica</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Comprobar presiones y realizar diagnóstico en circuitos frigoríficos; incluyen mangueras y llaves de servicio.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Liberación de refrigerante a presión</li><li>Golpes por desconexión de mangueras</li><li>Quemaduras por frío</li><li>Contacto con refrigerantes</li><li>Daños en conexiones</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Comprobar manómetros y mangueras.</li><li>Identificar previamente el refrigerante.</li><li>Comprobar presión antes de desconectar.</li><li>Usar mangueras y conexiones compatibles.</li><li>No manipular bruscamente.</li><li>Con R-290, aplicar medidas específicas.</li><li>Mantener mangueras ordenadas.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>Gafas de seguridad</li><li>Guantes adecuados para refrigerantes</li><li>Calzado de seguridad</li><li>Ropa de trabajo</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="tool-card" data-tool="herramientas de medición ">
+      <div class="tool-image">
+        <button class="image-btn" type="button" data-image="https://arcashop.es/800-large_default/flexometros-bimateria-tylon-stanley-cinta-metrica-metro.jpg" data-caption="Herramientas de medición">
+          <img src="https://arcashop.es/800-large_default/flexometros-bimateria-tylon-stanley-cinta-metrica-metro.jpg" alt="Herramientas de medición" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.image-btn').classList.add('img-error');">
+          <span>🔍 Ampliar imagen</span>
+        </button></div>
+      <div class="tool-body">
+        <div class="tool-top"><div><h4>Herramientas de medición</h4></div><span class="kind-badge">🛠️ Manual</span></div>
+        <p class="tool-desc">Flexómetros, reglas, calibres, termómetros y otros instrumentos para dimensiones y parámetros.</p>
+        <div class="tool-grid">
+          <div><h5>⚠️ Riesgos</h5><ul class=""><li>Golpes o cortes con bordes metálicos</li><li>Pellizcos con flexómetros</li><li>Rotura del instrumento</li><li>Errores de medición que puedan provocar montaje incorrecto</li></ul></div>
+          <div><h5>🛡️ Medidas preventivas</h5><ul class=""><li>Utilizar instrumento adecuado.</li><li>Mantener limpio y en buen estado.</li><li>No usar instrumentos deteriorados.</li><li>Guardar correctamente.</li><li>Evitar golpes sobre instrumentos de precisión.</li></ul></div>
+          <div class="tool-epi"><h5>🦺 EPI</h5><ul class=""><li>No requieren normalmente EPI específico; se mantienen los EPI generales de la zona.</li></ul></div>
+        </div>
+      </div>
+    </article>
+    </div>
+    <div id="noResults" class="notice" style="display:none">No se han encontrado fichas con ese criterio.</div>
+    <details class="accordion" style="margin-top:22px">
+      <summary>🧹 Orden, limpieza, mantenimiento y almacenamiento <span>+</span></summary>
+      <div class="accordion-content">
+        <div class="info-grid">
+          <article class="info-card"><div class="info-title"><span>🧹</span><h4>Conservación y almacenamiento</h4></div><p>Todas las herramientas deben mantenerse limpias, ordenadas y en buen estado. Después de cada práctica deben devolverse a su lugar, evitando dejarlas en suelo, bancos o zonas de paso. Las manuales deben almacenarse para evitar caídas, tropiezos o cortes; los elementos pesados se colocan preferentemente en zonas inferiores.</p></article>
+          <article class="info-card"><div class="info-title"><span>⚡</span><h4>Herramientas eléctricas</h4></div><p>Deben almacenarse desconectadas y protegidas frente a golpes, humedad y otros agentes que puedan deteriorarlas. Antes de usar cualquier herramienta se debe comprobar su estado; si presenta defectos que comprometan la seguridad, no debe utilizarse hasta su revisión o reparación.</p></article>
+          <article class="info-card"><div class="info-title"><span>✂️</span><h4>Herramientas de corte</h4></div><p>Deben mantenerse protegidas cuando no se utilicen. Las herramientas eléctricas deben desconectarse antes de limpieza, ajuste o cambio de accesorios.</p></article>
+          <article class="info-card"><div class="info-title"><span>🛡️</span><h4>Criterio preventivo general</h4></div><p>El principio fundamental es utilizar la herramienta adecuada, en buen estado y de la forma prevista por el fabricante. La prevención se basa en formación, revisión previa, correcta sujeción de piezas, mantenimiento de protecciones, orden y limpieza y EPI adecuados. Se debe prestar especial atención a herramientas de corte, eléctricas rotativas y equipos que generen proyecciones, ruido, vibraciones o polvo.</p></article>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+</section>
+
+<section class="section" id="senales">
+<div class="container">
+  <div class="section-title"><div><h2>🚨 SEÑALES Y EPIs</h2><p>Consulta la señalización de seguridad y los equipos de protección y medidas preventivas.</p></div></div>
+  <div class="signal-tabs">
+    <button class="signal-tab active" type="button" data-signal="senalizacion">🚨 Señalización de seguridad</button>
+    <button class="signal-tab" type="button" data-signal="epis">🦺 EPI y medidas preventivas</button>
+  </div>
+  <div class="signal-panel active" id="signal-senalizacion">
+    <div class="resources">
+      <div>
+        <div class="section-title"><div><h2 style="font-size:1.55rem">🚨 Señalización de seguridad</h2></div></div>
+        <div class="gallery">
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbhoYTn-zXiZB_V8Kkgn8HpGqpFe9CSgQgC20Y5S2ryh2wOXBebydjF7I&amp;s=10" data-caption="Riesgo eléctrico">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbhoYTn-zXiZB_V8Kkgn8HpGqpFe9CSgQgC20Y5S2ryh2wOXBebydjF7I&amp;s=10" alt="Riesgo eléctrico" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Riesgo eléctrico</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiSIZadjpGHs3sFR7iHMIDBlAJ0pH54PF2BCvACBw17bcf4v3Q7R64IUE7&amp;s=10" data-caption="Riesgo de incendio">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiSIZadjpGHs3sFR7iHMIDBlAJ0pH54PF2BCvACBw17bcf4v3Q7R64IUE7&amp;s=10" alt="Riesgo de incendio" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Riesgo de incendio</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPoiy5R5qhibgMXlWlnufDCSf6C3eaO4J7uJo_b5-qovyP1KoVVHa7SmSi&amp;s=10" data-caption="Material inflamable">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPoiy5R5qhibgMXlWlnufDCSf6C3eaO4J7uJo_b5-qovyP1KoVVHa7SmSi&amp;s=10" alt="Material inflamable" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Material inflamable</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.distincion.eu/wp-content/uploads/2018/05/00000000001224.jpg" data-caption="Riesgo de atrapamiento">
+        <img src="https://www.distincion.eu/wp-content/uploads/2018/05/00000000001224.jpg" alt="Riesgo de atrapamiento" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Riesgo de atrapamiento</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WCdKVvK1PyfKq6-TelhmAv0D_p3YAjX7oJZfYQjaMWhWh2mzsCoYxQM&amp;s=10" data-caption="Riesgo de corte">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_WCdKVvK1PyfKq6-TelhmAv0D_p3YAjX7oJZfYQjaMWhWh2mzsCoYxQM&amp;s=10" alt="Riesgo de corte" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Riesgo de corte</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.atproteccion.com/11273-large_default/senal-es-obligatorio-el-uso-de-gafas.jpg" data-caption="Uso obligatorio de gafas">
+        <img src="https://www.atproteccion.com/11273-large_default/senal-es-obligatorio-el-uso-de-gafas.jpg" alt="Uso obligatorio de gafas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Uso obligatorio de gafas</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.dateriumsystem.com/appfiles/clientes/3/catalogo/ASRD040.jpg" data-caption="Uso obligatorio de guantes">
+        <img src="https://www.dateriumsystem.com/appfiles/clientes/3/catalogo/ASRD040.jpg" alt="Uso obligatorio de guantes" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Uso obligatorio de guantes</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://cdn-01-artemis.media-brady.com/Assets/ImageRoot/DMEU_WebPipeline/9~/02/DMEU_Y4601139~02_std.lang.all.gif" data-caption="Uso obligatorio de protección auditiva">
+        <img src="https://cdn-01-artemis.media-brady.com/Assets/ImageRoot/DMEU_WebPipeline/9~/02/DMEU_Y4601139~02_std.lang.all.gif" alt="Uso obligatorio de protección auditiva" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Uso obligatorio de protección auditiva</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmwSLskjHceAQ3OW0ea1liQRKN8SuXMoEqxEVYsRETCfxXWvWPLhWYu3Fy&amp;s=10" data-caption="Uso obligatorio de calzado de seguridad">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmwSLskjHceAQ3OW0ea1liQRKN8SuXMoEqxEVYsRETCfxXWvWPLhWYu3Fy&amp;s=10" alt="Uso obligatorio de calzado de seguridad" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Uso obligatorio de calzado de seguridad</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuaHpYGcaH3SXb-LZNBJ2NblfPgVrPfi4CH2rW4tcN4O_x0OFenZb2OkB&amp;s=10" data-caption="Prohibido fumar">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuaHpYGcaH3SXb-LZNBJ2NblfPgVrPfi4CH2rW4tcN4O_x0OFenZb2OkB&amp;s=10" alt="Prohibido fumar" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Prohibido fumar</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIZ18BdNS31gDlKwmb17yJJ2mIiKTw-OLPNtlmvvr0wMahU-DQB9SDs1sL&amp;s=10" data-caption="Salida de emergencia">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIZ18BdNS31gDlKwmb17yJJ2mIiKTw-OLPNtlmvvr0wMahU-DQB9SDs1sL&amp;s=10" alt="Salida de emergencia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Salida de emergencia</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.extintorespisa.com/192/senal-de-extintor-poliestireno-fotoluminiscente-297x210.jpg" data-caption="Extintor">
+        <img src="https://www.extintorespisa.com/192/senal-de-extintor-poliestireno-fotoluminiscente-297x210.jpg" alt="Extintor" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Extintor</span>
+      </button></div>
+      </div>
+    </div>
+  </div>
+  <div class="signal-panel" id="signal-epis">
+    <div class="resources">
+      <div>
+        <div class="section-title"><div><h2 style="font-size:1.55rem">🦺 EPI y medidas preventivas</h2><p>Imágenes externas utilizadas como apoyo visual en el documento.</p></div></div>
+        <div class="gallery">
+      <button class="gallery-item image-btn" type="button" data-image="https://www.3linternacional.com/wp-content/uploads/2020/09/511.03.01.00.jpg" data-caption="Gafas de seguridad">
+        <img src="https://www.3linternacional.com/wp-content/uploads/2020/09/511.03.01.00.jpg" alt="Gafas de seguridad" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Gafas de seguridad</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.3linternacional.com/wp-content/uploads/2018/02/eyetec_protecci%C3%B3nfacial_climper_fp-400.jpg" data-caption="Pantalla facial">
+        <img src="https://www.3linternacional.com/wp-content/uploads/2018/02/eyetec_protecci%C3%B3nfacial_climper_fp-400.jpg" alt="Pantalla facial" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Pantalla facial</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsshovNa8Oy0skFKO1W8e-Cg0kKgWdTTEhul0X9LuXM8fznYgCqVb9jHEX&amp;s=10" data-caption="Guantes de protección">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsshovNa8Oy0skFKO1W8e-Cg0kKgWdTTEhul0X9LuXM8fznYgCqVb9jHEX&amp;s=10" alt="Guantes de protección" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Guantes de protección</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://media.cdn.bauhaus/m/722924-2/prod_large_square.jpg" data-caption="Guantes de soldadura">
+        <img src="https://media.cdn.bauhaus/m/722924-2/prod_large_square.jpg" alt="Guantes de soldadura" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Guantes de soldadura</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYH4biYnuDQJnts6mK4La5n2Ny8n_npJ93KxME_zcWwYZ2ZGDA32CKjc&amp;s=10" data-caption="Calzado de seguridad">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYH4biYnuDQJnts6mK4La5n2Ny8n_npJ93KxME_zcWwYZ2ZGDA32CKjc&amp;s=10" alt="Calzado de seguridad" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Calzado de seguridad</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqe8BzCv5psJMTCDNrIzXjz5G0gg63-KTp2nrp3eIumVDNjjSW_QGiX7wu&amp;s=10" data-caption="Protección auditiva">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqe8BzCv5psJMTCDNrIzXjz5G0gg63-KTp2nrp3eIumVDNjjSW_QGiX7wu&amp;s=10" alt="Protección auditiva" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Protección auditiva</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.prolaboral.com/55680-large_default/conjunto-workteam-wset1465.jpg" data-caption="Ropa de trabajo">
+        <img src="https://www.prolaboral.com/55680-large_default/conjunto-workteam-wset1465.jpg" alt="Ropa de trabajo" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Ropa de trabajo</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.prolaboral.com/85724-large_default/pantalla-de-soldadura-2188ps.jpg" data-caption="Pantalla de soldadura">
+        <img src="https://www.prolaboral.com/85724-large_default/pantalla-de-soldadura-2188ps.jpg" alt="Pantalla de soldadura" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Pantalla de soldadura</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.vestuariolaboral.com/29865/delantal-de-cuero-para-soldadura-portwest-mod-sw10.jpg" data-caption="Mandil de cuero">
+        <img src="https://www.vestuariolaboral.com/29865/delantal-de-cuero-para-soldadura-portwest-mod-sw10.jpg" alt="Mandil de cuero" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Mandil de cuero</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMIaa4KzgpWBOoWmaXnqyCkMqoxn3fTcebXCV3DYxVP0Smwqx6mL735dG&amp;s=10" data-caption="Señal de refrigerante inflamable / R-290">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMIaa4KzgpWBOoWmaXnqyCkMqoxn3fTcebXCV3DYxVP0Smwqx6mL735dG&amp;s=10" alt="Señal de refrigerante inflamable / R-290" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Señal de refrigerante inflamable / R-290</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u7K4M6Z0fhYGfOxeBfzkfcqXq_uv8Mfn3ckytIgOxNMuPbirPiYYe171&amp;s=10" data-caption="Manómetro frigorífico">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u7K4M6Z0fhYGfOxeBfzkfcqXq_uv8Mfn3ckytIgOxNMuPbirPiYYe171&amp;s=10" alt="Manómetro frigorífico" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Manómetro frigorífico</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-nAzUnz7p-r8ywooXIxDyByWRouQUasq_pCPYQ5Ek6A&amp;s=10" data-caption="Botella de refrigerante">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-nAzUnz7p-r8ywooXIxDyByWRouQUasq_pCPYQ5Ek6A&amp;s=10" alt="Botella de refrigerante" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Botella de refrigerante</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.carteling.com/7639-large_default/obligatorio-mantener-orden-y-limpieza.jpg" data-caption="Mantener orden y limpieza">
+        <img src="https://www.carteling.com/7639-large_default/obligatorio-mantener-orden-y-limpieza.jpg" alt="Mantener orden y limpieza" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Mantener orden y limpieza</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOHAJa5GgNIDFv8OeBvSw-lEJS3rF2F1_cPm2LuIoKs0VXN_8CH6E4bdDa&amp;s=10" data-caption="Mantener libres las zonas de paso">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOHAJa5GgNIDFv8OeBvSw-lEJS3rF2F1_cPm2LuIoKs0VXN_8CH6E4bdDa&amp;s=10" alt="Mantener libres las zonas de paso" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Mantener libres las zonas de paso</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.carteling.com/7781-large_default/atencion-no-use-esta-maquina-sin-estar-autorizado-y-conocer-perfectamente-su-funcionamiento.jpg" data-caption="Comprobar máquinas antes de usar">
+        <img src="https://www.carteling.com/7781-large_default/atencion-no-use-esta-maquina-sin-estar-autorizado-y-conocer-perfectamente-su-funcionamiento.jpg" alt="Comprobar máquinas antes de usar" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Comprobar máquinas antes de usar</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://www.carteling.com/7607-large_default/desconectar-antes-de-llevar-a-cabo-su-mantenimiento-o-reparacion.jpg" data-caption="Desconectar antes de mantenimiento">
+        <img src="https://www.carteling.com/7607-large_default/desconectar-antes-de-llevar-a-cabo-su-mantenimiento-o-reparacion.jpg" alt="Desconectar antes de mantenimiento" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Desconectar antes de mantenimiento</span>
+      </button>
+      <button class="gallery-item image-btn" type="button" data-image="https://preventecsl.es/wp-content/uploads/2011/06/senalizacion-de-materias-inflamables-A58.webp" data-caption="Mantener materiales inflamables alejados">
+        <img src="https://preventecsl.es/wp-content/uploads/2011/06/senalizacion-de-materias-inflamables-A58.webp" alt="Mantener materiales inflamables alejados" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.gallery-item').classList.add('img-error');">
+        <span>Mantener materiales inflamables alejados</span>
+      </button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="bibliografia">
+<div class="container">
+  <div class="section-title"><div><h2>📚 BIBLIOGRAFÍA Y FUENTES CONSULTADAS</h2><p>Relación de fuentes utilizadas en el trabajo.</p></div></div>
+  <div class="source-list">
+    <article class="source"><h4>1. Imágenes propias</h4><p>Fotografías propias realizadas en las instalaciones del IES Heliópolis para la identificación y descripción de zonas de trabajo, máquinas, herramientas, equipos frigoríficos, cuadros eléctricos, instalaciones y elementos de seguridad.</p></article>
+    <article class="source"><h4>2. Legislación y normativa</h4>
+      <p>• Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales — <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Real Decreto 1215/1997, de 18 de julio, sobre utilización de equipos de trabajo — <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-1997-17824&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Real Decreto 486/1997, de 14 de abril, sobre lugares de trabajo — <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1997-8669&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Real Decreto 773/1997, de 30 de mayo, sobre equipos de protección individual — <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-1997-12735&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Real Decreto 374/2001, de 6 de abril, sobre agentes químicos — <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2001-8436&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Real Decreto 552/2019, de 27 de septiembre, Reglamento de Seguridad para Instalaciones Frigoríficas — <a href="https://www.boe.es/eli/es/rd/2019/09/27/552/con?utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en el BOE</a><br>
+      • Reglamento (UE) 2024/573, de 7 de febrero de 2024, sobre gases fluorados — <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32024R0573&utm_source=chatgpt.com" target="_blank" rel="noopener">Consultar en EUR-Lex</a></p>
+    </article>
+    <article class="source"><h4>3. Documentación proporcionada</h4><p>• Manual de Seguridad y Salud en el manejo de herramientas. Documentación proporcionada.<br>• Manual de Seguridad y Salud en Carpinterías Metálicas. Documentación proporcionada.<br>• Ley de Prevención de Riesgos Laborales. Documentación proporcionada.<br>• Real Decreto 1215/1997 sobre equipos de trabajo. Documentación proporcionada.</p></article>
+    <article class="source"><h4>4. Fuentes técnicas y de consulta</h4><p>• Universidad de Castilla-La Mancha (UCLM). Fichas de seguridad y prevención de equipos de trabajo — <a href="https://www.uclm.es/areas/prevencion/servicios/seguridad-salud/equipos-trabajo?utm_source=chatgpt.com" target="_blank" rel="noopener">Equipos de trabajo</a><br>• Boletín Oficial del Estado (BOE). Base de datos oficial consultada para legislación española — <a href="https://www.boe.es/?utm_source=chatgpt.com" target="_blank" rel="noopener">BOE</a><br>• EUR-Lex. Base de datos oficial de la Unión Europea — <a href="https://eur-lex.europa.eu/?utm_source=chatgpt.com" target="_blank" rel="noopener">EUR-Lex</a></p></article>
+    <article class="source"><h4>5. Fabricantes y equipos identificados</h4><p>ERLO · CEVIK PRO · LETAG · DPYY · FEMI · DEWALT · ACESA · INTARCON · AKO · Eliwell · R-290 (propano), según las identificaciones y referencias recogidas en el taller.</p></article>
+    <article class="source"><h4>6. Imágenes y recursos gráficos externos</h4><p>Imágenes de proveedores y fabricantes; búsquedas mediante Google Imágenes; imágenes de productos y equipos disponibles públicamente en Internet, priorizando cuando fue posible las procedentes de fabricantes y proveedores. Las imágenes propias utilizadas para mostrar instalaciones y equipos del centro son de elaboración propia y las externas tienen finalidad académica e ilustrativa.</p></article>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+  <div><p><strong>Realizado por Javier Pérez Flores</strong></p><p>1º Mantenimiento de Instalaciones Térmicas y de Fluidos · Procesos de Montaje de Instalaciones</p></div>
+  <div><p>24/09/2026</p><p>🦺 Prevención · Seguridad · Taller</p></div>
+</div>
+</footer>
+
+<div class="modal" id="imageModal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="close" id="closeModal" aria-label="Cerrar">×</button>
+    <img id="modalImage" src="" alt="">
+    <div class="modal-caption" id="modalCaption"></div>
+  </div>
+</div>
+<button class="backtop" id="backTop" aria-label="Volver arriba">↑</button>
+
+<script>
+const $ = (s,root=document)=>root.querySelector(s);
+const $$ = (s,root=document)=>[...root.querySelectorAll(s)];
+
+const menuBtn = $('#menuBtn'), navLinks = $('#navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+$$('#navLinks a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+const tabs=$$('.big-tab');
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  const target=t.dataset.panel==='panel-herramientas' ? $('#herramientas') : $('#zonas');
+  if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  tabs.forEach(x=>x.classList.toggle('active',x===t));
+}));
+
+const zoneBtns=$$('.zone-btn'), zonePanels=$$('.zone-panel');
+function showZone(key){
+  zoneBtns.forEach(b=>b.classList.toggle('active',b.dataset.zone===key));
+  zonePanels.forEach(p=>p.classList.toggle('active',p.id==='zone-'+key));
+}
+zoneBtns.forEach(b=>b.addEventListener('click',()=>showZone(b.dataset.zone)));
+showZone('mecanizado');
+
+const signalTabs=$$('.signal-tab'), signalPanels=$$('.signal-panel');
+function showSignal(key){
+  signalTabs.forEach(b=>b.classList.toggle('active',b.dataset.signal===key));
+  signalPanels.forEach(p=>p.classList.toggle('active',p.id==='signal-'+key));
+}
+signalTabs.forEach(b=>b.addEventListener('click',()=>showSignal(b.dataset.signal)));
+showSignal('senalizacion');
+
+const filterBtns=$$('.filter-btn'), search=$('#toolSearch'), cards=$$('.tool-card'), noResults=$('#noResults');
+let currentFilter='all';
+function filterTools(){
+  const q=search.value.trim().toLowerCase();
+  let visible=0;
+  cards.forEach(c=>{
+    const kind=c.querySelector('.kind-badge').textContent.includes('Manual')?'manual':'elec';
+    const okFilter=currentFilter==='all'||kind===currentFilter;
+    const okSearch=!q||c.dataset.tool.includes(q);
+    const show=okFilter&&okSearch;
+    c.style.display=show?'grid':'none';
+    if(show) visible++;
+  });
+  noResults.style.display=visible?'none':'block';
+}
+filterBtns.forEach(b=>b.addEventListener('click',()=>{
+  currentFilter=b.dataset.filter;
+  filterBtns.forEach(x=>x.classList.toggle('active',x===b));
+  filterTools();
+}));
+search.addEventListener('input',filterTools);
+
+const modal=$('#imageModal'), modalImage=$('#modalImage'), modalCaption=$('#modalCaption');
+function openImage(src,caption){
+  modalImage.src=src; modalImage.alt=caption; modalCaption.textContent=caption;
+  modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+}
+function closeImage(){
+  modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); modalImage.src=''; document.body.style.overflow='';
+}
+$$('.image-btn').forEach(b=>b.addEventListener('click',()=>openImage(b.dataset.image,b.dataset.caption)));
+$('#closeModal').addEventListener('click',closeImage);
+modal.addEventListener('click',e=>{if(e.target===modal)closeImage()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeImage()});
+
+
+$('#backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
